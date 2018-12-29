@@ -161,14 +161,31 @@ mark {
     margin-bottom: 0;
 }
 
+/*.bg-color {*/
+    /*background-image: linear-gradient(to right, #4cbf30 0%, #0f9d58 100%);*/
+/*}*/
+
+/*.text-color {*/
+    /*color: #0f9d58 !important;*/
+/*}*/
+
+/* The overall background color, including navigation, mobile navigation, footer, tab, etc.. */
 .bg-color {
     background-image: linear-gradient(to right, #4cbf30 0%, #0f9d58 100%);
 }
 
+/* The color of the text with the same background color is only used in one place on the front page. You can also apply it to other places.*/
 .text-color {
     color: #0f9d58 !important;
 }
 
+@-webkit-keyframes rainbow {
+   /* Dynamically switch background colors. */
+}
+
+@keyframes rainbow {
+    /* Dynamically switch background colors. */
+}
 /*头部导航栏样式*/
 @media only screen and (max-width: 600px) {
     header nav .brand-logo {
