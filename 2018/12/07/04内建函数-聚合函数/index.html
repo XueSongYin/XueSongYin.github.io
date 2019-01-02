@@ -6,13 +6,10 @@
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
     <meta name="keywords" content="04内建函数-聚合函数, Hexo">
-    <meta name="description" content="聚合函数
-聚合函数，其输入与输出是多对一的关系，即将多条输入记录聚合成一条输出值。可以与SQL中的group by语句联用。
-COUNT
-bigint count([distinct|all] value)
-
+    <meta name="description" content="聚合函数聚合函数，其输入与输出是多对一的关系，即将多条输入记录聚合成一条输出值。可以与SQL中的group by语句联用。
+COUNTbigint count([distinct|all] value)
 命令说明如下：
-该函数用于计算">
+该函数用于计算记录数">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -271,7 +268,7 @@ bigint count([distinct|all] value)
 
 
 
-<div class="bg-cover post-cover" style="background-image: url('/source/images/1.jpg')">
+<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/22.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
@@ -323,18 +320,14 @@ bigint count([distinct|all] value)
         <hr>
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3>聚合函数</h3>
-<p>聚合函数，其输入与输出是多对一的关系，即将多条输入记录聚合成一条输出值。可以与SQL中的group by语句联用。</p>
-<h4>COUNT</h4>
-<pre><code>bigint count([distinct|all] value)
-</code></pre>
-<p>命令说明如下：</p>
+                <h3 id="聚合函数"><a href="#聚合函数" class="headerlink" title="聚合函数"></a>聚合函数</h3><p>聚合函数，其输入与输出是多对一的关系，即将多条输入记录聚合成一条输出值。可以与SQL中的group by语句联用。</p>
+<h4 id="COUNT"><a href="#COUNT" class="headerlink" title="COUNT"></a>COUNT</h4><pre><code>bigint count([distinct|all] value)
+</code></pre><p>命令说明如下：</p>
 <p>该函数用于计算记录数。</p>
 <p>参数说明：</p>
 <ul>
 <li>distinct|all：指明在计数时是否去除重复记录，默认是all，即计算全部记录，如果指定distinct，则可以只计算唯一值数量。</li>
-<li>value：可以为任意类型，当value值为NULL时，该行不参与计算，value可以为*，当count(*) 时，返回所有行数。<br>
-返回值：</li>
+<li>value：可以为任意类型，当value值为NULL时，该行不参与计算，value可以为<em>，当count(</em>) 时，返回所有行数。<br>返回值：</li>
 </ul>
 <p>返回Bigint类型。</p>
 <p>示例如下：</p>
@@ -350,8 +343,7 @@ bigint count([distinct|all] value)
 +------+
 select count(*) from tbla; -- 值为3,
 select count(col1) from tbla; -- 值为2
-</code></pre>
-<blockquote>
+</code></pre><blockquote>
 <p>聚合函数可以和group by一同使用，例如：假设存在表test_src，存在如下两列：key string类型，value double类型。</p>
 </blockquote>
 <pre><code>-- test_src的数据为
@@ -376,18 +368,15 @@ select key, count(value) as count from test_src group by key;
 | b | 2 |
 +-----+-------+
 -- 聚合函数将对相同key值得value值做聚合计算。下面介绍的其他聚合函数使用方法均与此例相同，不一一举例。
-</code></pre>
-<h4>AVG</h4>
-<pre><code>double avg(double value)
+</code></pre><h4 id="AVG"><a href="#AVG" class="headerlink" title="AVG"></a>AVG</h4><pre><code>double avg(double value)
 decimal avg(decimal value)
-</code></pre>
-<p>命令说明如下：</p>
+</code></pre><p>命令说明如下：</p>
 <p>该函数用于计算平均值。</p>
 <p>参数说明：</p>
 <p>value：Double类型或Decimal 类型，若输入为String或Bigint，会隐式转换到Double类型后参与运算，其它类型抛异常。当value值为NULL 时，该行不参与计算。Boolean类型不允许参与计算。</p>
 <p>返回值：</p>
 <p>若输入Decimal类型，返回Decimal类型，其他合法输入类型返回Double类型。</p>
-<p>示例如下：</p>
+<p>示例如下：  </p>
 <pre><code>-- 如表tbla有一列value，类型为 Bigint
 +-------+
 | value |
@@ -403,11 +392,8 @@ select avg(value) as avg from tbla;
 +------+
 | 1.5 |
 +------+
-</code></pre>
-<h4>MAX</h4>
-<pre><code>max(value)
-</code></pre>
-<p>命令说明如下：</p>
+</code></pre><h4 id="MAX"><a href="#MAX" class="headerlink" title="MAX"></a>MAX</h4><pre><code>max(value)
+</code></pre><p>命令说明如下：</p>
 <p>该函数用于计算最大值。</p>
 <p>参数说明：</p>
 <p>value：可以为任意类型，当列中的值为NULL时，该行不参与计算。Boolean类型不允许参与运算。</p>
@@ -426,21 +412,14 @@ select avg(value) as avg from tbla;
 +------+
 select max(value) from tbla; -- 返回值为2
 
-</code></pre>
-<h4>MIN</h4>
-<pre><code>MIN(value)
-</code></pre>
-<p>该函数用于计算最小值。</p>
-<h4>MEDIAN</h4>
-<pre><code>double median(double number)
+</code></pre><h4 id="MIN"><a href="#MIN" class="headerlink" title="MIN"></a>MIN</h4><pre><code>MIN(value)
+</code></pre><p>该函数用于计算最小值。</p>
+<h4 id="MEDIAN"><a href="#MEDIAN" class="headerlink" title="MEDIAN"></a>MEDIAN</h4><pre><code>double median(double number)
 decimal median(decimal number)
-</code></pre>
-<p>该函数用于计算中位数。</p>
-<h4>STDDEV</h4>
-<pre><code>double stddev(double number)
+</code></pre><p>该函数用于计算中位数。</p>
+<h4 id="STDDEV"><a href="#STDDEV" class="headerlink" title="STDDEV"></a>STDDEV</h4><pre><code>double stddev(double number)
 decimal stddev(decimal number)
-</code></pre>
-<p>该函数用于计算总体标准差。</p>
+</code></pre><p>该函数用于计算总体标准差。</p>
 <pre><code>-- 如表tbla有一列value，类型为 Bigint
 +------+
 | value|
@@ -456,13 +435,10 @@ decimal stddev(decimal number)
 | 5 |
 +------+
 select STDDEV(value) from tbla; -- 返回值为 1.4142135623730951
-</code></pre>
-<h4>STDDEV_SAMP</h4>
-<pre><code>double stddev_samp(double number)
+</code></pre><h4 id="STDDEV-SAMP"><a href="#STDDEV-SAMP" class="headerlink" title="STDDEV_SAMP"></a>STDDEV_SAMP</h4><pre><code>double stddev_samp(double number)
 decimal stddev_samp(decimal number)
 
-</code></pre>
-<p>该函数用于计算样本标准差。</p>
+</code></pre><p>该函数用于计算样本标准差。</p>
 <p>示例如下：</p>
 <pre><code>-- 如表tbla有一列value，类型为 Bigint
 +------+
@@ -479,11 +455,8 @@ decimal stddev_samp(decimal number)
 | 5 |
 +------+
 select STDDEV_SAMP(value) from tbla; -- 返回值为 1.5811388300841898
-</code></pre>
-<h4>SUM</h4>
-<pre><code>sum(value)
-</code></pre>
-<p>该函数用于计算汇总值。</p>
+</code></pre><h4 id="SUM"><a href="#SUM" class="headerlink" title="SUM"></a>SUM</h4><pre><code>sum(value)
+</code></pre><p>该函数用于计算汇总值。</p>
 <p>示例如下：</p>
 <pre><code>-- 如表tbla有一列value，类型为 Bigint
 +------+
@@ -496,47 +469,34 @@ select STDDEV_SAMP(value) from tbla; -- 返回值为 1.5811388300841898
 | NULL |
 +------+
 select sum(value) from tbla; -- 返回值为3
-</code></pre>
-<h4>WM_CONCAT</h4>
-<pre><code>string wm_concat(string separator, string str
+</code></pre><h4 id="WM-CONCAT"><a href="#WM-CONCAT" class="headerlink" title="WM_CONCAT"></a>WM_CONCAT</h4><pre><code>string wm_concat(string separator, string str
 
-</code></pre>
-<p>命令说明如下：</p>
+</code></pre><p>命令说明如下：</p>
 <p>该函数用指定的spearator做分隔符，链接str中的值。</p>
-<p>参数说明：<br>
-separator：String类型常量，分隔符。其他类型或非常量将引发异常。<br>
-str：String类型，若输入为Bigint，Double或者Datetime类型，会隐式转换为String后参与运算，其它类型报异常。<br>
-返回值：</p>
+<p>参数说明：<br>separator：String类型常量，分隔符。其他类型或非常量将引发异常。<br>str：String类型，若输入为Bigint，Double或者Datetime类型，会隐式转换为String后参与运算，其它类型报异常。<br>返回值：</p>
 <p>返回String类型。</p>
 <blockquote>
-<p>语句select wm_concat(’,’, name) from test_src;中，若test_src为空集合，此条语句返回NULL值。</p>
+<p>语句select wm_concat(‘,’, name) from test_src;中，若test_src为空集合，此条语句返回NULL值。</p>
 </blockquote>
-<h4>COLLECT_LIST</h4>
-<pre><code>ARRAY collect_list(col)
+<h4 id="COLLECT-LIST"><a href="#COLLECT-LIST" class="headerlink" title="COLLECT_LIST"></a>COLLECT_LIST</h4><pre><code>ARRAY collect_list(col)
 
-</code></pre>
-<p>命令说明如下：</p>
+</code></pre><p>命令说明如下：</p>
 <p>该函数在给定group内，将col指定的表达式聚合为一个数组。</p>
 <p>参数说明：</p>
 <p>col：表的某列，可为任意数据类型。</p>
 <p>返回值：</p>
 <p>返回ARRAY类型。</p>
-<h4>COLLECT_SET</h4>
-<pre><code>ARRAY collect_set(col)
+<h4 id="COLLECT-SET"><a href="#COLLECT-SET" class="headerlink" title="COLLECT_SET"></a>COLLECT_SET</h4><pre><code>ARRAY collect_set(col)
 
-</code></pre>
-<p>命令说明如下：</p>
+</code></pre><p>命令说明如下：</p>
 <p>该函数在给定group内，将col指定的表达式聚合为一个无重复元素的集合数组。</p>
 <p>参数说明：</p>
 <p>col：表的某列，可为任意数据类型。</p>
 <p>返回值：</p>
 <p>返回ARRAY类型。</p>
-<h3>S28新函数</h3>
-<h4>VARIANCE/VAR_POP</h4>
-<pre><code>DOUBLE variance(col)
+<h3 id="S28新函数"><a href="#S28新函数" class="headerlink" title="S28新函数"></a>S28新函数</h3><h4 id="VARIANCE-VAR-POP"><a href="#VARIANCE-VAR-POP" class="headerlink" title="VARIANCE/VAR_POP"></a>VARIANCE/VAR_POP</h4><pre><code>DOUBLE variance(col)
 DOUBLE var_pop(col)
-</code></pre>
-<p>命令说明如下：</p>
+</code></pre><p>命令说明如下：</p>
 <p>该函数用于求指定数字列的方差。</p>
 <p>参数说明：</p>
 <p>col：数值类型列，其他类型返回null。</p>
@@ -552,8 +512,7 @@ DOUBLE var_pop(col)
 | 10 |
 | 11 |
 +------------+
-</code></pre>
-<p>执行下述语句求该表c1列的方差。</p>
+</code></pre><p>执行下述语句求该表c1列的方差。</p>
 <pre><code>select variance(c1) from test;
 --或
 select var_pop(c1) from test;
@@ -564,12 +523,9 @@ select var_pop(c1) from test;
 | 1.25 |
 +------------+
 
-</code></pre>
-<h4>VAR_SAMP</h4>
-<pre><code>DOUBLE var_samp(col)
+</code></pre><h4 id="VAR-SAMP"><a href="#VAR-SAMP" class="headerlink" title="VAR_SAMP"></a>VAR_SAMP</h4><pre><code>DOUBLE var_samp(col)
 
-</code></pre>
-<p>命令说明如下：</p>
+</code></pre><p>命令说明如下：</p>
 <p>该函数用于求指定数字列的样本方差。</p>
 <p>参数说明：</p>
 <p>col：数值类型列，其他类型返回null。</p>
@@ -585,8 +541,7 @@ select var_pop(c1) from test;
 | 10 |
 | 11 |
 +------------+
-</code></pre>
-<p>执行下述语句求该表c1列的方差。</p>
+</code></pre><p>执行下述语句求该表c1列的方差。</p>
 <pre><code>select var_samp(c1) from test;
 --执行结果如下：
 +------------+
@@ -595,12 +550,9 @@ select var_pop(c1) from test;
 | 1.6666666666666667 |
 +------------+
 
-</code></pre>
-<h4>COVAR_POP</h4>
-<pre><code>DOUBLE covar_pop(col1, col2)
+</code></pre><h4 id="COVAR-POP"><a href="#COVAR-POP" class="headerlink" title="COVAR_POP"></a>COVAR_POP</h4><pre><code>DOUBLE covar_pop(col1, col2)
 
-</code></pre>
-<p>命令说明如下：</p>
+</code></pre><p>命令说明如下：</p>
 <p>该函数用于求指定两个数字列的总体协方差。</p>
 <p>参数说明：</p>
 <p>col1/col2：数值类型列，其他类型返回null。</p>
@@ -613,8 +565,7 @@ select var_pop(c1) from test;
 | 50 | 14 |
 | 26 | 75 |
 +------------+------------+
-</code></pre>
-<p>执行下述语句求c1，c2的总体协方差。</p>
+</code></pre><p>执行下述语句求c1，c2的总体协方差。</p>
 <pre><code>select covar_pop(c1,c2) from test;
 --结果如下：
 +------------+
@@ -623,11 +574,8 @@ select var_pop(c1) from test;
 | 123.49999999999997|
 +------------+
 
-</code></pre>
-<h4>COVAR_SAMP</h4>
-<pre><code>DOUBLE covar_samp(col1, col2)
-</code></pre>
-<p>命令说明如下：</p>
+</code></pre><h4 id="COVAR-SAMP"><a href="#COVAR-SAMP" class="headerlink" title="COVAR_SAMP"></a>COVAR_SAMP</h4><pre><code>DOUBLE covar_samp(col1, col2)
+</code></pre><p>命令说明如下：</p>
 <p>该函数用于求指定两个数字列的样本协方差。</p>
 <p>参数说明：</p>
 <p>col1/col2：数字类型列，其他类型返回null。</p>
@@ -642,8 +590,7 @@ select var_pop(c1) from test;
 | 26 | 75 |
 +------------+------------+
 
-</code></pre>
-<p>执行下述语句求c1，c2的样本协方差。</p>
+</code></pre><p>执行下述语句求c1，c2的样本协方差。</p>
 <pre><code>select covar_samp(c1,c2) from test;
 --结果如下：
 +------------+
@@ -651,19 +598,15 @@ select var_pop(c1) from test;
 +------------+
 | 164.66666666666663|
 +------------+
-</code></pre>
-<h4>PERCENTILE</h4>
-<pre><code>DOUBLE percentile(BIGINT col, p)
+</code></pre><h4 id="PERCENTILE"><a href="#PERCENTILE" class="headerlink" title="PERCENTILE"></a>PERCENTILE</h4><pre><code>DOUBLE percentile(BIGINT col, p)
 array percentile(BIGINT col, array(p1 [, p2]...))
 
-</code></pre>
-<p>命令说明如下：</p>
+</code></pre><p>命令说明如下：</p>
 <p>返回指定列精确的第p位百分数，p必须在0和1之间。</p>
 <p>参数说明：</p>
 <ul>
 <li>col：bigint类型。</li>
-<li>p：必须是大于等0小于等于1。<br>
-示例如下：</li>
+<li>p：必须是大于等0小于等于1。<br>示例如下：</li>
 </ul>
 <p>test表的c1列数据如下所示：</p>
 <pre><code>+------------+
@@ -675,8 +618,7 @@ array percentile(BIGINT col, array(p1 [, p2]...))
 | 11 |
 +------------+
 
-</code></pre>
-<p>执行下述语句求该表c1列的第P位百分数。</p>
+</code></pre><p>执行下述语句求该表c1列的第P位百分数。</p>
 <pre><code>select percentile(c1,0),percentile(c1,0.3),percentile(c1,0.5),percentile(c1,1) from var_test;
 --执行结果如下：
 +------------+------------+------------+------------+
@@ -694,7 +636,6 @@ select percentile(c1,array(0,0.3,0.5,1))from var_test;
 +------+
 
 </code></pre>
-
             </div>
             <hr>
 
@@ -856,25 +797,23 @@ select percentile(c1,array(0,0.3,0.5,1))from var_test;
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">Previous</div>
             <div class="card">
-                <a href="/2018/12/07/02内建函数-数学函数/">
+                <a href="/2018/12/07/03内建函数-窗口函数/">
                     <div class="card-image">
                         
-                        <img src="/source/images/1.jpg" class="responsive-img" alt="02内建函数-数学函数">
                         
-                        <span class="card-title">02内建函数-数学函数</span>
+                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="03内建函数-窗口函数">
+                        
+                        <span class="card-title">03内建函数-窗口函数</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">数学函数
-ABS
-Double abs(Double number)
-Bigint abs(Bigint number)
-Decimal abs(Decimal number)
+                    <div class="summary">窗口函数
+只能出现在select子句中
+目前在一个MaxCompute SQL语句中，最多可以使用5个窗口函数。
+窗口函数中不要嵌套使用窗口函数和聚合函数
+窗口函数不可以和同级别的聚合函数一起使用
 
-
-命令说明如下：
-该函数用于返回number的绝对值。
-参数</div>
+语法声明window_func() ov</div>
                     <div class="publish-info">
                         <span class="publish-date">
                             <i class="fa fa-clock-o fa-fw icon-date"></i>2018-12-07
@@ -907,26 +846,25 @@ Decimal abs(Decimal number)
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">Next</div>
             <div class="card">
-                <a href="/2018/09/07/01内建函数-日期函数/">
+                <a href="/2018/12/07/05内建函数-字符串函数(待续)/">
                     <div class="card-image">
                         
-                        <img src="/source/images/1.jpg" class="responsive-img" alt="01内建函数-日期函数">
                         
-                        <span class="card-title">01内建函数-日期函数</span>
+                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="05内建函数-字符串函数">
+                        
+                        <span class="card-title">05内建函数-字符串函数</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">内建函数对照-与mysql 以及oracle
-日期函数
-DATEADD
-datetime dateadd(datetime date, bigint delta, string datepart)
+                    <div class="summary">字符串函数CHAR_MATCHCOUNTbigint char_matchcount(string str1, string str2)
+命令说明如下：
+该函数用于计算str1中有多少个字符出现在str2中。
+参数说明：
 
-
-
-date：Datetime类型，日期</div>
+str1，str</div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-09-07
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-12-07
                             </span>
                         <span class="publish-author">
                             
