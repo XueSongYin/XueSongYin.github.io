@@ -5,8 +5,14 @@
 
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="Tag: 内建函数, Hexo">
-    <meta name="description" content="Tag: 内建函数 | Hexo">
+    <meta name="keywords" content="03内建函数-窗口函数, Hexo">
+    <meta name="description" content="窗口函数
+只能出现在select子句中
+目前在一个MaxCompute SQL语句中，最多可以使用5个窗口函数。
+窗口函数中不要嵌套使用窗口函数和聚合函数
+窗口函数不可以和同级别的聚合函数一起使用
+
+语法声明window_func() ov">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -14,7 +20,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>Tag: 内建函数 | Hexo</title>
+    <title>03内建函数-窗口函数 | Hexo</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -261,106 +267,344 @@
     </nav>
 </header>
 
-<div class="bg-cover  about-cover" style="background-image: url('/medias/cover.jpg')">
+
+
+
+
+<div class="bg-cover post-cover" style="background-image: url('/source/images/1.jpg')">
     <div class="container">
         <div class="row">
-            <div class="col s10 offset-s1 m8 offset-m2 l8 offset-l2">
+            <div class="col s12 m12 l12">
                 <div class="brand">
-                    <div class="title center-align">
-                    
-                        subtitle
-                    
-                    </div>
-
-                    <div class="description center-align">
-                    
-                        This is your root _config.yml 'description' value.
-                    
+                    <div class="description center-align post-title">
+                        03内建函数-窗口函数
                     </div>
                 </div>
             </div>
         </div>
-        
+    </div>
+</div>
+
+
+
+<main class="container content">
+
+    
+    <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            
+            <div class="article-tag">
+                
+                <a href="/tags/Maxcompute-内建函数/" target="_blank">
+                    <span class="chip bg-color">Maxcompute-内建函数</span>
+                </a>
+                
+            </div>
+            
+            <div class="post-info">
+                
+                <span class="post-cate">
+                    <i class="fa fa-bookmark fa-fw icon-category"></i>
+                    
+                    <a href="/categories/Maxcompute/" class="post-category" target="_blank">
+                        Maxcompute
+                    </a>
+                    
+                </span>
+                
+
+                <span class="post-date">
+                    <i class="fa fa-clock-o fa-fw"></i>2018-12-07
+                </span>
+            </div>
+        </div>
+        <hr>
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h3 id="窗口函数"><a href="#窗口函数" class="headerlink" title="窗口函数"></a>窗口函数</h3><ul>
+<li>只能出现在select子句中</li>
+<li>目前在一个MaxCompute SQL语句中，最多可以使用5个窗口函数。</li>
+<li>窗口函数中不要嵌套使用窗口函数和聚合函数</li>
+<li>窗口函数不可以和同级别的聚合函数一起使用</li>
+</ul>
+<h3 id="语法声明"><a href="#语法声明" class="headerlink" title="语法声明"></a>语法声明</h3><pre><code>window_func() over (partition by [col1,col2…]
+[order by [col1[asc|desc], col2[asc|desc]…]] windowing_clause)
+
+</code></pre><ul>
+<li>partition by部分用来指定开窗的列。分区列的值相同的行被视为在同一个窗口内。现阶段，同一窗口内最多包含1亿行数据（建议不超过500万行），否则运行时报错。</li>
+<li>order by用来指定数据在一个窗口内如何排序。</li>
+<li><p>windowing_clause部分可以用rows指定开窗方式，有以下两种方式：</p>
+<blockquote>
+<p>rows between x preceding|following and y preceding|following表示窗口范围是从前或后x行到前或后y行。</p>
+</blockquote>
+<blockquote>
+<p>rows x preceding|following窗口范围是从前或后第x行到当前行。</p>
+</blockquote>
+</li>
+</ul>
+
+            </div>
+            <hr>
+
+            
+            <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.88rem;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff;
+        background-color: #22AB38;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff;
+        background-color: #019FE8;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a class="reward-link btn-floating btn-large waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close"><i class="fa fa-close"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs">
+                        <li class="tab wechat-tab waves-effect waves-light"><a class="active" href="#wechat">微信</a></li>
+                        <li class="tab alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                    </ul>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 
 <script>
-// Dynamically switch banner pictures every day.
-$('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay() + '.jpg)');
+    $(function () {
+        $('#reward .reward-link').on('click', function () {
+            $('#rewardModal').openModal();
+        });
+
+        $('#rewardModal .close').on('click', function () {
+            $('#rewardModal').closeModal();
+        });
+    });
 </script>
+            
 
-<main class="content">
+            <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
 
+<div id="article-share">
     
+    <div class="social-share" data-disabled="qzone, qq, weibo, douban"></div>
+    
+</div>
 
-<div id="tags" class="container chip-container">
-    <div class="card">
-        <div class="card-content">
-            <div class="tag-title center-align">Post Tags</div>
-            <div class="tag-chips">
-                
-                
-                <a href="/tags/MaxCompute/" title="MaxCompute: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default " data-tagname="MaxCompute" style="background-color: #F9EBEA;">MaxCompute
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/内建函数/" title="内建函数: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-active " data-tagname="内建函数" style="background-color: #F5EEF8;">内建函数
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
+<script src="/libs/share/js/social-share.min.js"></script>
+
+            <div class="reprint">
+                <p>
+                    <span class="reprint-tip">Reprint please specify: </span>
+                    <a href="http://yoursite.com" class="b-link-green">Hexo</a>
+                    <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
+                    <a href="/2018/12/07/03内建函数-窗口函数/" class="b-link-green">03内建函数-窗口函数</a>
+                </p>
             </div>
         </div>
     </div>
-</div>
 
-    <div class="container">
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
         
-
-        <article>
-            <div class="row tags-posts">
-                
-                
-                <div class="article tag-post col s12 m6 l4" data-tags="MaxCompute, 内建函数" data-aos="fade-up">
-                    <div class="card">
-                        <a href="/2018/09/07/01内建函数-日期函数/">
-                            <div class="card-image tag-image">
-                                
-                                
-                                <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="01内建函数-日期函数">
-                                
-                                <span class="card-title">01内建函数-日期函数</span>
-                            </div>
-                        </a>
-                        <div class="card-content article-content">
-                            <div class="publish-info">
-                                <span class="publish-date">
-                                    <i class="fa fa-clock-o fa-fw icon-date"></i>2018-09-07
-                                </span>
-                                <span class="publish-author">
-                                    
-                                    <i class="fa fa-bookmark fa-fw icon-category"></i>
-                                    
-                                    <a href="/categories/MaxCompute/" class="post-category" target="_blank">
-                                    MaxCompute
-                                    </a>
-                                    
-                                    
-                                </span>
-                            </div>
-                        </div>
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">Current</div>
+            <div class="card">
+                <a href="/2018/12/07/03内建函数-窗口函数/">
+                    <div class="card-image">
+                        
+                        <img src="/source/images/1.jpg" class="responsive-img" alt="03内建函数-窗口函数">
+                        
+                        <span class="card-title">03内建函数-窗口函数</span>
                     </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary">窗口函数
+只能出现在select子句中
+目前在一个MaxCompute SQL语句中，最多可以使用5个窗口函数。
+窗口函数中不要嵌套使用窗口函数和聚合函数
+窗口函数不可以和同级别的聚合函数一起使用
+
+语法声明window_func() ov</div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-12-07
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Maxcompute/" class="post-category" target="_blank">
+                                    Maxcompute
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Maxcompute-内建函数/" target="_blank">
+                        <span class="chip bg-color">Maxcompute-内建函数</span>
+                    </a>
+                    
                 </div>
                 
             </div>
-        </article>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">Next</div>
+            <div class="card">
+                <a href="/2018/12/07/05内建函数-字符串函数(待续)/">
+                    <div class="card-image">
+                        
+                        <img src="/source/images/1.jpg" class="responsive-img" alt="05内建函数-字符串函数">
+                        
+                        <span class="card-title">05内建函数-字符串函数</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary">字符串函数CHAR_MATCHCOUNTbigint char_matchcount(string str1, string str2)
+命令说明如下：
+该函数用于计算str1中有多少个字符出现在str2中。
+参数说明：
+
+str1，str</div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-12-07
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Maxcompute/" class="post-category" target="_blank">
+                                    Maxcompute
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Maxcompute-内建函数/" target="_blank">
+                        <span class="chip bg-color">Maxcompute-内建函数</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
     </div>
+</article>
+</div>
+
+
+    
+
 </main>
 
 

@@ -5,12 +5,14 @@
 
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="01内建函数-日期函数, Hexo">
-    <meta name="description" content="内建函数对照-与mysql 以及oracle
-日期函数DATEADDdatetime dateadd(datetime date, bigint delta, string datepart)
+    <meta name="keywords" content="02内建函数-数学函数, Hexo">
+    <meta name="description" content="数学函数ABSDouble abs(Double number)
+Bigint abs(Bigint number)
+Decimal abs(Decimal number)
 
-
-date：Datetime类型，日期值。若">
+命令说明如下：
+该函数用于返回number的绝对值。
+参数说明：">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -18,7 +20,7 @@ date：Datetime类型，日期值。若">
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>01内建函数-日期函数 | Hexo</title>
+    <title>02内建函数-数学函数 | Hexo</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -275,7 +277,7 @@ date：Datetime类型，日期值。若">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        01内建函数-日期函数
+                        02内建函数-数学函数
                     </div>
                 </div>
             </div>
@@ -314,224 +316,284 @@ date：Datetime类型，日期值。若">
                 
 
                 <span class="post-date">
-                    <i class="fa fa-clock-o fa-fw"></i>2018-09-07
+                    <i class="fa fa-clock-o fa-fw"></i>2018-12-07
                 </span>
             </div>
         </div>
         <hr>
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p><a href="https://helpcdn.aliyun.com/document_detail/96342.html?spm=a2c4g.11186623.6.642.5ced5c813MwBoQ" target="_blank" rel="noopener">内建函数对照-与mysql 以及oracle</a></p>
-<h3 id="日期函数"><a href="#日期函数" class="headerlink" title="日期函数"></a>日期函数</h3><h4 id="DATEADD"><a href="#DATEADD" class="headerlink" title="DATEADD"></a>DATEADD</h4><pre><code>datetime dateadd(datetime date, bigint delta, string datepart)
-
-</code></pre><ul>
-<li>date：Datetime类型，日期值。若输入为String类型会隐式转换为Datetime类型后参与运算，其它类型抛异常。</li>
-<li>delta：Bigint类型，修改幅度。若输入为String类型或Double型会隐式转换到Bigint类型后参与运算，其他类型会引发异常。若delta大于0，则增，否则减。</li>
-<li>datepart：String类型常量。此字段的取值遵循String与Datetime类型转换的约定，即yyyy表示年，mm表示月。<blockquote>
-<p>关于类型转换的规则，请参见String类型与Datetime类型之间的转换。此外也支持扩展的日期格式：年-year，月-month或mon，日-day，小时-hour。非常量、不支持的格式或其它类型会抛异常。</p>
-</blockquote>
-</li>
-</ul>
-<pre><code>若trans_date = 2005-02-28 00:00:00：
-dateadd(trans_date, 1, &#39;dd&#39;) = 2005-03-01 00:00:00
--- 加一天，结果超出当年2月份的最后一天，实际值为下个月的第一天
-dateadd(trans_date, -1, &#39;dd&#39;) = 2005-02-27 00:00:00
--- 减一天
-dateadd(trans_date, 20, &#39;mm&#39;) = 2006-10-28 00:00:00
--- 加20个月，月份溢出，年份加1
-若trans_date = 2005-02-28 00:00:00, dateadd(transdate, 1, &#39;mm&#39;) = 2005-03-28 00:00:00
-若trans_date = 2005-01-29 00:00:00, dateadd(transdate, 1, &#39;mm&#39;) = 2005-02-28 00:00:00
--- 2005年2月没有29日，日期截取至当月最后一天
-若trans_date = 2005-03-30 00:00:00, dateadd(transdate, -1, &#39;mm&#39;) = 2005-02-28 00:00:00
-
-</code></pre><p>示例：将string类转换为datetime类型</p>
-<blockquote>
-<p>错误示例：select dateadd(2005-03-30 00:00:00, -1, ‘mm’) from tbl1;</p>
-</blockquote>
-<blockquote>
-<p>正确示例：select dateadd(cast(“2005-03-30 00:00:00” as datetime), -1, ‘mm’) from tbl1;</p>
-</blockquote>
-<h4 id="DATEDIFF"><a href="#DATEDIFF" class="headerlink" title="DATEDIFF"></a>DATEDIFF</h4><pre><code>bigint datediff(datetime date1, datetime date2, string datepart)
+                <h3 id="数学函数"><a href="#数学函数" class="headerlink" title="数学函数"></a>数学函数</h3><h4 id="ABS"><a href="#ABS" class="headerlink" title="ABS"></a>ABS</h4><pre><code>Double abs(Double number)
+Bigint abs(Bigint number)
+Decimal abs(Decimal number)
 
 </code></pre><p>命令说明如下：</p>
-<p>计算两个时间date1、date2在指定时间单位datepart的差值。</p>
+<p>该函数用于返回number的绝对值。</p>
 <p>参数说明：</p>
+<p>number：当number为Double、Bigint或Decimal类型时。</p>
 <ul>
-<li>datet1、date2：Datetime类型，被减数和减数，若输入为String类型会隐式转换为Datetime类型后参与运算，其它类型抛异常。</li>
-<li>datepart：String类型常量。支持扩展的日期格式。若datepart不符合指定格式或者其它类型则会发生异常。</li>
+<li>输入为Bigint，返回Bigint。</li>
+<li>输入为Double，返回Double类型。</li>
+<li>输入为Decimal，返回Decimal类型。<br>若输入为String类型，会隐式转换为Double类型后参与运算，其它类型抛异常。</li>
 </ul>
 <p>返回值：</p>
-<p>返回Bigint类型。任一输入参数是NULL，返回NULL。如果date1小于date2，返回值可以为负数。</p>
+<p>返回Double、Bigint或Decimal类型，取决于输入参数的类型。若输入为null，则返回null。</p>
 <p>示例如下：</p>
-<pre><code>若start = 2005-12-31 23:59:59，end = 2006-01-01 00:00:00:
-    datediff(end, start, &#39;dd&#39;) = 1
-    datediff(end, start, &#39;mm&#39;) = 1
-    datediff(end, start, &#39;yyyy&#39;) = 1
-    datediff(end, start, &#39;hh&#39;) = 1
-    datediff(end, start, &#39;mi&#39;) = 1
-    datediff(end, start, &#39;ss&#39;) = 1
-    datediff(&#39;2013-05-31 13:00:00&#39;, &#39;2013-05-31 12:30:00&#39;, &#39;ss&#39;) = 1800
-    datediff(&#39;2013-05-31 13:00:00&#39;, &#39;2013-05-31 12:30:00&#39;, &#39;mi&#39;) = 30
-若start = 2018-06-04 19:33:23.234，end = 2018-06-04 19:33:23.250 含毫秒的日期不属于标准Datetime式样，不能直接隐式转换，此处需进行显示转换：
- datediff(to_date(&#39;2018-06-04 19:33:23.250&#39;, &#39;yyyy-MM-dd hh:mi:ss.ff3&#39;),to_date(&#39;2018-06-04 19:33:23.234&#39;, &#39;yyyy-MM-dd hh:mi:ss.ff3&#39;) , &#39;ff3&#39;) = 16
-</code></pre><h4 id="DATEPART"><a href="#DATEPART" class="headerlink" title="DATEPART"></a>DATEPART</h4><pre><code>bigint datepart(datetime date, string datepart)
+<pre><code>abs(null)=null
+abs(-1)=1
+abs(-1.2)=1.2
+abs(&quot;-2&quot;)=2.0
+abs(122320837456298376592387456923748)=1.2232083745629837e32
+
+#完整的ABS函数在SQL中的使用
+select abs(id) from tbl1;
+-- 取tbl1表内id字段的绝对值
+
+</code></pre><h4 id="ACOS"><a href="#ACOS" class="headerlink" title="ACOS"></a>ACOS</h4><pre><code>Double acos(Double number)
+Decimal acos(Decimal number)
 
 </code></pre><p>命令说明如下：</p>
-<p>提取日期date中指定的时间单位datepart的值。</p>
+<p>该函数用于计算number的反余弦函数。</p>
 <p>参数说明：</p>
-<p>返回值：</p>
 <ul>
-<li>date：Datetime类型，若输入为String类型会隐式转换为Datetime类型后参与运算，其它类型抛异常。<br>datepart：String类型常量，支持扩展的日期格式。* 若datepart不符合指定格式或者其它类型则会发生异常。</li>
+<li>number：Double类型或Decimal类型，-1 ≤ number ≤1。若输入为String类型或Bigint类型，会隐式转换为Double类型后参与运算，其他类型抛异常。</li>
 </ul>
-<p>返回Bigint类型。若任一输入参数为NULL，返回NULL。</p>
+<p>返回值：</p>
+<p>返回Double类型或Decimal类型，值域在0 ~ π之间。若number为null，则返回null。</p>
+<pre><code>acos(&quot;0.87&quot;)=0.5155940062460905
+acos(0)=1.5707963267948966
+</code></pre><h4 id="ASIN"><a href="#ASIN" class="headerlink" title="ASIN"></a>ASIN</h4><pre><code>Double asin(Double number)
+Decimal asin(Decimal number)
+
+</code></pre><p>命令说明如下：</p>
+<p>该函数用于计算number的反正弦函数。</p>
+<p>参数说明：</p>
+<ul>
+<li>number：Double类型或Decimal类型，-1 ≤ number ≤1。若输入为String类型或Bigint类型，会隐式转换为Double类型后参与运算，其他类型抛异常。</li>
+</ul>
+<p>返回值：</p>
+<p>返回Double类型或Decimal类型，值域在-π/2 ~π/2之间。若number为null，返回null。</p>
+<pre><code>asin(1)=1.5707963267948966
+asin(-1)=-1.5707963267948966
+</code></pre><h4 id="ATAN"><a href="#ATAN" class="headerlink" title="ATAN"></a>ATAN</h4><pre><code>Double atan(Double number)
+</code></pre><p>命令说明如下：</p>
+<p>该函数用于计算number的反正切函数。</p>
+<p>参数说明：</p>
+<ul>
+<li>number：Double类型，若输入为String类型或Bigint类型，会隐式转换到Double类型后参与运算，其他类型抛异常。</li>
+</ul>
+<p>返回值：</p>
+<p>返回Double类型，值域在-π/2~π/2之间。若number为null，则返回null。</p>
+<pre><code>atan(1)=0.7853981633974483
+atan(-1)=-0.7853981633974483
+</code></pre><h4 id="CEIL"><a href="#CEIL" class="headerlink" title="CEIL"></a>CEIL</h4><pre><code>Bigint ceil(Double value)
+Bigint ceil(Decimal value)
+</code></pre><p>命令说明如下：</p>
+<p>向上取整，函数返回不小于输入值value的最小整数。</p>
+<p>参数说明：</p>
+<p>value：Double类型或Decimal类型，若输入为String类型或Bigint类型，会隐式转换到Double类型后参与运算，其他类型抛异常。</p>
+<p>返回值：</p>
+<p>返回Bigint类型。任意一个参数输入为null，则返回null。</p>
+<pre><code>ceil(1.1)=2
+ceil(-1.1)=-1
+
+</code></pre><h4 id="CONV"><a href="#CONV" class="headerlink" title="CONV"></a>CONV</h4><pre><code>
+String conv(String input, Bigint from_base, Bigint to_base)
+
+</code></pre><p>命令说明如下：</p>
+<p>该函数为进制转换函数。</p>
+<p>参数说明：</p>
+<ul>
+<li>input：以String表示的要转换的整数值，接受Bigint、Double的隐式转换。</li>
+<li>from_base、to_base：以十进制表示的进制的值，可接受的的值为2、8、10和16。接受String及Double的隐式转换。</li>
+</ul>
+<p>返回值：</p>
+<p>返回String类型。任意一个参数输入为null，返回null。转换过程以64位精度工作，溢出时报异常。输入如果是负值，即以（-）开头，报异常。如果输入的是小数，则会转为整数值后进行进制转换，小数部分会被舍弃。</p>
+<pre><code>conv(&#39;1100&#39;, 2, 10)=&#39;12&#39;
+conv(&#39;1100&#39;, 2, 16)=&#39;c&#39;
+conv(&#39;ab&#39;, 16, 10)=&#39;171&#39;
+conv(&#39;ab&#39;, 16, 16)=&#39;ab&#39;
+
+</code></pre><h4 id="COS"><a href="#COS" class="headerlink" title="COS"></a>COS</h4><pre><code>Double cos(Double number)
+Decimal cos(Decimal number)
+</code></pre><p>命令说明如下：</p>
+<p>该函数用于计算number的余弦函数，输入为弧度值。</p>
+<p>参数说明：</p>
+<ul>
+<li>number：Double类型或Decimal类型。若输入为String类型或Bigint类型，会隐式转换到Double类型后参与运算，其他类型抛异常。</li>
+</ul>
+<p>返回值：</p>
+<p>返回Double类型或Decimal类型。若number为null，则返回null。</p>
+<pre><code>cos(3.1415926/2)=2.6794896585028633e-8
+cos(3.1415926)=-0.9999999999999986
+</code></pre><h4 id="COSH"><a href="#COSH" class="headerlink" title="COSH"></a>COSH</h4><pre><code>Double cosh(Double number)
+Decimal cosh(Decimal number)
+</code></pre><p>命令说明如下：</p>
+<p>该函数用于计算number的双曲余弦函数。</p>
+<p>参数说明：</p>
+<p>number：Double类型或Decimal类型。若输入为String类型或Bigint类型，会隐式转换为Double类型后，参与运算，其他类型抛异常。</p>
+<p>返回值：</p>
+<p>返回Double类型或Decimal类型。若number为null，返回null。</p>
+<h4 id="COT"><a href="#COT" class="headerlink" title="COT"></a>COT</h4><pre><code>Double cot(Double number)
+Decimal cot(Decimal number)
+
+</code></pre><p>命令说明如下：</p>
+<p>该函数用于计算number的余切函数，输入为弧度值。</p>
+<p>参数说明：</p>
+<p>number：Double类型或Decimal类型。若输入为String类型或Bigint类型，会隐式转换为Double类型后参与运算，其他类型抛异常。</p>
+<p>返回值：</p>
+<p>返回Double类型或Decimal类型。若number为null，则返回null。</p>
+<h4 id="EXP"><a href="#EXP" class="headerlink" title="EXP"></a>EXP</h4><pre><code>Double exp(Double number)
+Decimal exp(Decimal number)
+</code></pre><p>命令说明如下：</p>
+<p>该函数用于计算number的指数函数。</p>
+<p>返回值：</p>
+<p>返回number的指数值。</p>
+<p>参数说明：</p>
+<p>number：Double类型或Decimal类型。若输入为String类型或Bigint类型，会隐式转换为Double类型后参与运算，其他类型抛异常。</p>
+<p>返回值：</p>
+<p>返回Double类型或Decimal类型。若number为null，则返回null。</p>
+<h4 id="FLOOR"><a href="#FLOOR" class="headerlink" title="FLOOR"></a>FLOOR</h4><pre><code>Bigint floor(Double number)
+Bigint floor(Decimal number)
+</code></pre><p>命令说明如下：</p>
+<p>向下取整，函数返回不大于number的最大整数值。</p>
+<p>参数说明：</p>
+<p>number：Double类型或Decimal类型，若输入为String类型或Bigint类型，会隐式转换为Double类型后参与运算，其他类型抛异常。</p>
+<p>返回值：</p>
+<p>返回Bigint类型。若number为null，则返回null。</p>
+<pre><code>floor(1.2)=1
+floor(1.9)=1
+floor(0.1)=0
+floor(-1.2)=-2
+floor(-0.1)=-1
+floor(0.0)=0
+floor(-0.0)=0
+
+</code></pre><h4 id="LN"><a href="#LN" class="headerlink" title="LN"></a>LN</h4><pre><code>Double ln(Double number)
+Decimal ln(Decimal number)
+
+</code></pre><p>命令说明如下：</p>
+<p>该函数用于返回number的自然对数。</p>
+<p>参数说明：</p>
+<p>number：Double类型或Decimal类型。</p>
+<ul>
+<li>若输入为String类型或Bigint类型，会隐式转换为Double类型后参与运算，其他类型抛异常。</li>
+<li>若number为null，则返回null。若number为负数或零，则执行报错。<br>返回值：</li>
+</ul>
+<p>返回Double类型或Decimal类型。</p>
+<h4 id="LOG"><a href="#LOG" class="headerlink" title="LOG"></a>LOG</h4><pre><code>Double log(Double base, Double x)
+Decimal log(Decimal base, Decimal x)
+
+</code></pre><p>命令说明如下：</p>
+<p>该函数用于返回以base为底的x的对数。</p>
+<p>参数说明：</p>
+<ul>
+<li>base：Double类型或Decimal类型，若输入为String类型或Bigint类型，会隐式转换为Double类型后参与运算，其他类型抛异常。</li>
+<li>x：Double类型或Decimal类型，若输入为String类型或Bigint类型，会隐式转换为Double类型后参与运算，其他类型抛异常。</li>
+</ul>
+<p>返回值：</p>
+<p>返回Double类型或Decimal类型的对数值。</p>
+<ul>
+<li>若base和x中存在null，则返回null。</li>
+<li>若base和x中某一个值为负数或 0，会引发异常。</li>
+<li>若base为1（会引发一个除零行为），也会引发异常。</li>
+</ul>
+<h4 id="POW"><a href="#POW" class="headerlink" title="POW"></a>POW</h4><pre><code>Double pow(Double x, Double y)
+Decimal pow(Decimal x, Decimal y)
+</code></pre><p>命令说明如下：</p>
+<p>该函数用于返回x的y次方，即x^y。</p>
+<p>参数说明：</p>
+<ul>
+<li>X：Double类型或Decimal类型，若输入为String类型或Bigint类型，会隐式转换为Double类型后参与运算，其他类型抛异常。</li>
+<li>Y：Double类型或Decimal类型，若输入为String类型或Bigint类型，会隐式转换为Double类型后参与运算，其他类型抛异常。<br>返回值：</li>
+</ul>
+<p>返回Double类型或Decimal类型。若x或y为null，则返回null。</p>
+<h4 id="RAND"><a href="#RAND" class="headerlink" title="RAND"></a>RAND</h4><pre><code>Double rand(Bigint seed)
+
+</code></pre><p>命令说明如下：</p>
+<p>该函数以seed为种子，返回Double类型的随机数，返回值区间是的0～1。</p>
+<p>参数说明：</p>
+<p>seed：可选参数，Bigint类型，随机数种子，决定随机数序列的起始值。</p>
+<p>返回值：</p>
+<p>返回Double类型。</p>
 <p>示例如下：</p>
-<pre><code>datepart(&#39;2013-06-08 01:10:00&#39;, &#39;yyyy&#39;)  =  2013
-datepart(&#39;2013-06-08 01:10:00&#39;, &#39;mm&#39;)  =  6
-
-</code></pre><h4 id="DATETRUNC"><a href="#DATETRUNC" class="headerlink" title="DATETRUNC"></a>DATETRUNC</h4><pre><code>datetime datetrunc (datetime date, string datepart)
+<pre><code>select rand() from dual;
+select rand(1) from dual;
+</code></pre><h4 id="ROUND"><a href="#ROUND" class="headerlink" title="ROUND"></a>ROUND</h4><pre><code>Double round(Double number, [Bigint Decimal_places])
+Decimal round(Decimal number, [Bigint Decimal_places])
 
 </code></pre><p>命令说明如下：</p>
-<p>返回日期date被截取指定时间单位datepart后的日期值。</p>
+<p>该函数四舍五入到指定小数点位置。</p>
 <p>参数说明：</p>
 <ul>
-<li>date：Datetime类型，若输入为String类型会隐式转换为Datetime类型后参与运算，其它类型抛异常。</li>
-<li>datepart：String类型常量，支持扩展的日期格式。若datepart不符合指定格式或者其它类型则会发生异常。</li>
+<li>number：Double类型或Decimal类型。若输入为String类型或Bigint类型，会隐式转换为Double类型后参与运算，其他类型抛异常。</li>
+<li>Decimal_place：Bigint类型常量，四舍五入计算到小数点后的位置，其他类型参数会引发异常。如果省略表示四舍五入到个位数，默认值为0。<br>返回值：</li>
 </ul>
-<p>返回值：</p>
-<p>Datetime类型。任意一个参数为NULL时，返回NULL。</p>
-<p>示例如下：</p>
-<pre><code>datetrunc(&#39;2011-12-07 16:28:46&#39;, &#39;yyyy&#39;) = 2011-01-01 00:00:00
-datetrunc(&#39;2011-12-07 16:28:46&#39;, &#39;month&#39;) = 2011-12-01 00:00:00
-datetrunc(&#39;2011-12-07 16:28:46&#39;, &#39;DD&#39;) = 2011-12-07 00:00:00
-
-</code></pre><h4 id="GETDATE"><a href="#GETDATE" class="headerlink" title="GETDATE"></a>GETDATE</h4><pre><code>datetime getdate()
-
+<p>返回Double类型或Decimal类型。若number或Decimal_places为null，则返回null。</p>
+<pre><code>round(125.315)=125.0
+round(125.315, 0)=125.0
+round(125.315, 1)=125.3
+round(125.315, 2)=125.32
+round(125.315, 3)=125.315
+round(-125.315, 2)=-125.32
+round(123.345, -2)=100.0
+round(null)=null
+round(123.345, 4)=123.345
+round(123.345, -4)=0.0
+</code></pre><h4 id="SIN"><a href="#SIN" class="headerlink" title="SIN"></a>SIN</h4><pre><code>Double sin(Double number)
+Decimal sin(Decimal number)
 </code></pre><p>命令说明如下：</p>
-<p>获取当前系统时间。使用东八区时间作为MaxCompute标准时间。</p>
+<p>该函数用于计算number的正弦函数，输入为弧度值。</p>
+<p>参数说明：</p>
+<p>number：Double类型或Decimal类型。若输入为String类型或Bigint类型，会隐式转换为Double类型后参与运算，其他类型抛异常。</p>
 <p>返回值：</p>
-<p>返回当前日期和时间，Datetime类型。</p>
-<h4 id="ISDATE"><a href="#ISDATE" class="headerlink" title="ISDATE"></a>ISDATE</h4><pre><code>boolean isdate(string date, string format)
-
+<p>返回Double类型或Decimal类型。若number为null，则返回null。</p>
+<h4 id="SINH"><a href="#SINH" class="headerlink" title="SINH"></a>SINH</h4><pre><code>Double sinh(Double number)
+Decimal sinh(Decimal number)
 </code></pre><p>命令说明如下：</p>
-<p>判断一个日期字符串能否根据对应的格式串转换为一个日期值，如果转换成功，返回TRUE，否则返回FALSE。</p>
+<p>该函数用于计算number的双曲正弦函数。</p>
+<p>参数说明：</p>
+<p>number：Double类型或Decimal类型。若输入为String类型或Bigint类型，会隐式转换为Double类型后参与运算，其他类型抛异常。</p>
+<p>返回值：</p>
+<p>返回Double类型或Decimal类型。若number为null，则返回null。</p>
+<h4 id="SQRT"><a href="#SQRT" class="headerlink" title="SQRT"></a>SQRT</h4><pre><code>Double sqrt(Double number)
+Decimal sqrt(Decimal number)
+</code></pre><p>命令说明如下：</p>
+<p>该函数用于计算number的平方根。</p>
+<p>参数说明：</p>
+<p>number：Double类型或Decimal类型，必须大于0，小于0时引发异常。若输入为String类型或Bigint类型，会隐式转换为Double类型后参与运算，其他类型抛异常。</p>
+<p>返回值：</p>
+<p>返回Double类型或Decimal类型。若number为null，则返回null。</p>
+<h4 id="TANH"><a href="#TANH" class="headerlink" title="TANH"></a>TANH</h4><pre><code>Double tanh(Double number)
+Decimal tanh(Decimal number)
+</code></pre><p>命令说明如下：</p>
+<p>该函数用于计算number的双曲正切函数。</p>
+<p>参数说明：</p>
+<p>number：Double类型或Decimal类型。若输入为String类型或Bigint类型，会隐式转换为Double类型后参与运算，其他类型抛异常。</p>
+<p>返回值：</p>
+<p>返回Double类型或Decimal类型。若number为null，则返回null。</p>
+<h4 id="TRUNC"><a href="#TRUNC" class="headerlink" title="TRUNC"></a>TRUNC</h4><pre><code>Double trunc(Double number[, Bigint Decimal_places])
+Decimal trunc(Decimal number[, Bigint Decimal_places])
+</code></pre><p>命令说明如下：</p>
+<p>该函数用于将输入值number截取到指定小数点位置。</p>
 <p>参数说明：</p>
 <ul>
-<li>date：String格式的日期值，若输入为Bigint、Double、Decimal或Datetime类型，会隐式转换为String类型后参与运算，其它类型报异常。</li>
-<li>format：String类型常量，不支持日期扩展格式。其它类型或不支持的格式会抛异常。如果format中出现多余的格式串，则只取第一个格式串对应的日期数值，其余的会被视为分隔符。如isdate(“1234-yyyy”, “yyyy-yyyy”)，会返回TRUE。<br>返回值：</li>
+<li>number：Double类型或Decimal类型，若输入为String类型或Bigint类型，会隐式转换为Double类型后参与运算，其他类型抛异常。</li>
+<li>Decimal_places：Bigint类型常量，要截取到的小数点位置，其他类型参数会隐式转为Bigint，省略此参数时默认到截取到个位数。<br>返回值：</li>
 </ul>
-<p>返回Boolean类型，如任意参数为NULL，返回NULL。</p>
-<h5 id="LASTDAY"><a href="#LASTDAY" class="headerlink" title="LASTDAY"></a>LASTDAY</h5><pre><code>datetime lastday(datetime date)
-
-</code></pre><p>命令说明如下：</p>
-<p>取date当月的最后一天，截取到天，时分秒部分为00:00:00。</p>
-<p>参数说明：</p>
-<ul>
-<li>date：Datetime类型，若输入为String 类型，会隐式转换为Datetime类型后参与运算，其它类型报异常。</li>
-</ul>
-<p>返回值：</p>
-<p>返回Datetime类型，如输入为NULL，返回NULL。</p>
-<h4 id="TO-DATE"><a href="#TO-DATE" class="headerlink" title="TO_DATE"></a>TO_DATE</h4><pre><code>datetime to_date(string date, string format)
-
-</code></pre><p>命令说明如下：</p>
-<p>用途：将一个format格式的字符串date转成日期值。</p>
-<p>参数说明：</p>
-<ul>
-<li>date：String类型，要转换的字符串格式的日期值，若输入为Bigint、Double、Decimal或者Datetime类型，会隐式转换为String类型后参与运算，为其它类型则抛异常，为空串时抛异常。</li>
-<li>format：String类型常量，日期格式。非常量或其他类型会引发异常。format不支持日期扩展格式，其他字符作为无用字符在解析时忽略。</li>
-</ul>
-<blockquote>
-<p>format参数至少包含“yyyy”，否则引发异常，如果format中出现多余的格式串，则只取第一个格式串对应的日期数值，其余的会被视为分隔符。如to_date(“1234-2234”, “yyyy-yyyy”) 会返回1234-01-01 00:00:00。</p>
-</blockquote>
-<blockquote>
-<p>format格式：yyyy为四位数的年，mm为2位数的月，dd为2位数的日，hh为24小时制的时，mi为2位数的分钟，ss为2位数秒，ff3为3位精度毫秒。</p>
-</blockquote>
-<p>返回值：返回Datetime类型，格式为‘yyyy-mm-dd hh:mi:ss’ 。若任意一个输入的参数为NULL，则返回NULL值。</p>
-<p>示例如下：</p>
-<pre><code>to_date(&#39;阿里巴巴2010-12*03&#39;, &#39;阿里巴巴yyyy-mm*dd&#39;) = 2010-12-03 00:00:00
-to_date(&#39;20080718&#39;, &#39;yyyymmdd&#39;) = 2008-07-18 00:00:00
-to_date(&#39;200807182030&#39;,&#39;yyyymmddhhmi&#39;) = 2008-07-18 20:30:00
-to_date(&#39;2008718&#39;, &#39;yyyymmdd&#39;) = null
--- 格式不符合，引发异常
-to_date(&#39;阿里巴巴2010-12*3&#39;, &#39;阿里巴巴yyyy-mm*dd&#39;) = null
--- 格式不符合，引发异常
-to_date(&#39;2010-24-01&#39;, &#39;yyyy&#39;) = null
--- 格式不符合，引发异常
-to_date(&#39;20181030 15-13-12.345&#39;,&#39;yyyymmdd hh-mi-ss.ff3&#39;)=2018-10-30 15:13:12
-
-</code></pre><h4 id="TO-CHAR"><a href="#TO-CHAR" class="headerlink" title="TO_CHAR"></a>TO_CHAR</h4><pre><code>string to_char(datetime date, string format)
-
-</code></pre><p>命令说明如下：</p>
-<p>将日期类型date按照format指定的格式转成字符串。</p>
-<p>参数类型：</p>
-<ul>
-<li>date：Datetime类型，要转换的日期值，若输入为String类型，会隐式转换为Datetime类型后参与运算，其它类型抛异常。</li>
-<li>format：String类型常量。非常量或其他类型会引发异常。format中的日期格式部分会被替换成相应的数据，其它字符直接输出。</li>
-</ul>
-<p>返回值：</p>
-<p>返回String类型。若任意一个输入的参数为NULL，则返回NULL值。</p>
-<p>示例如下：</p>
-<pre><code>to_char(&#39;2010-12-03 00:00:00&#39;, &#39;阿里金融yyyy-mm*dd&#39;) = &#39;阿里金融2010-12*03&#39;
-to_char(&#39;2008-07-18 00:00:00&#39;, &#39;yyyymmdd&#39;) = &#39;20080718&#39; 
-to_char(&#39;阿里巴巴2010-12*3&#39;, &#39;阿里巴巴yyyy-mm*dd&#39;) -- 引发异常
-to_char(&#39;2010-24-01&#39;, &#39;yyyy&#39;) -- 会引发异常
-to_char(&#39;2008718&#39;, &#39;yyyymmdd&#39;) -- 会引发异常
-
-</code></pre><h4 id="UNIX-TIMESTAMP"><a href="#UNIX-TIMESTAMP" class="headerlink" title="UNIX_TIMESTAMP"></a>UNIX_TIMESTAMP</h4><pre><code>bigint unix_timestamp(datetime date)
-
-</code></pre><p>命令说明如下：</p>
-<p>将日期date转化为整型的unix格式的日期时间值。</p>
-<p>参数说明：</p>
-<ul>
-<li>date：Datetime类型日期值，若输入为String类型，会隐式转换为Datetime类型后参与运算，其它类型抛异常。</li>
-</ul>
-<p>返回值：</p>
-<p>返回Bigint类型，表示unix格式日期值，date为NULL时，返回NULL值。</p>
-<h4 id="FROM-UNIXTIME"><a href="#FROM-UNIXTIME" class="headerlink" title="FROM_UNIXTIME"></a>FROM_UNIXTIME</h4><pre><code>datetime from_unixtime(bigint unixtime)
-
-</code></pre><p>命令说明如下：</p>
-<p>将数字型的unix时间日期值unixtime转为日期值。</p>
-<p>参数说明：</p>
-<ul>
-<li>unixtime：Bigint类型，秒数，unix格式的日期时间值，若输入为String、Double、Decimal类型会隐式转换为Bigint后参与运算。</li>
-</ul>
-<p>返回值：</p>
-<p>返回Datetime类型的日期值，unixtime为NULL时，返回NULL。</p>
-<p>示例如下：</p>
-<pre><code>from_unixtime(123456789) = 1973-11-30 05:33:09
-
-</code></pre><h4 id="WEEKDAY"><a href="#WEEKDAY" class="headerlink" title="WEEKDAY"></a>WEEKDAY</h4><pre><code>bigint weekday (datetime date)
-
-</code></pre><p>命令说明如下：</p>
-<p>返回date日期当前周的第几天。</p>
-<p>参数说明：</p>
-<ul>
-<li>date：Datetime类型，若输入为String类型，会隐式转换为Datetime类型后参与运算，其它类型抛异常。</li>
-</ul>
-<p>返回值：</p>
-<p>返回Bigint类型，若输入参数为NULL，返回NULL值。周一作为一周的第一天，返回值为0。其他日期依次递增，周日返回6。</p>
-<h4 id="WEEKOFYEAR"><a href="#WEEKOFYEAR" class="headerlink" title="WEEKOFYEAR"></a>WEEKOFYEAR</h4><pre><code>bigint weekofyear(datetime date)
-
-</code></pre><p>命令说明如下：</p>
-<p>返回日期date位于那一年的第几周。周一作为一周的第一天。</p>
-<p>参数说明:</p>
-<ul>
-<li>date：Datetime类型日期值，若输入为String类型，会隐式转换为Datetime类型后参与运算，其它类型抛异常。</li>
-</ul>
-<p>返回值：</p>
-<p>返回Bigint类型。若输入为NULL，返回NULL值</p>
-<p>示例如下：</p>
-<pre><code>select weekofyear(to_date(&quot;20141229&quot;, &quot;yyyymmdd&quot;)) from dual;  
-返回结果：  
-+------------+
-| _c0        |
-+------------+
-| 1          |
-+------------+
- -虽然20141229属于2014年，但是这一周的大多数日期是在2015年，因此返回结果为1，表示是2015年的第一周。    
- select weekofyear(to_date(&quot;20141231&quot;, &quot;yyyymmdd&quot;)) from dual；--返回结果为1。  
- select weekofyear(to_date(&quot;20151229&quot;, &quot;yyyymmdd&quot;)) from dual；--返回结果为53。
-
-</code></pre><h3 id="日期函数扩展函数（支持MaxCompute2-0）"><a href="#日期函数扩展函数（支持MaxCompute2-0）" class="headerlink" title="日期函数扩展函数（支持MaxCompute2.0）"></a>日期函数扩展函数（支持MaxCompute2.0）</h3>
+<p>返回值类型为Double或Decimal类型。若number或Decimal_places为null，则返回null。</p>
+<pre><code>trunc(125.815)=125.0
+trunc(125.815,0)=125.0
+trunc(125.815,1)=125.80000000000001
+trunc(125.815,2)=125.81
+trunc(125.815,3)=125.815
+trunc(-125.815,2)=-125.81
+trunc(125.815,-1)=120.0
+trunc(125.815,-2)=100.0
+trunc(125.815,-3)=0.0
+trunc(123.345,4)=123.345
+trunc(123.345,-4)=0.0
+</code></pre>
             </div>
             <hr>
 
@@ -669,7 +731,7 @@ to_char(&#39;2008718&#39;, &#39;yyyymmdd&#39;) -- 会引发异常
                     <span class="reprint-tip">Reprint please specify: </span>
                     <a href="http://yoursite.com" class="b-link-green">Hexo</a>
                     <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
-                    <a href="/2018/09/07/01内建函数-日期函数/" class="b-link-green">01内建函数-日期函数</a>
+                    <a href="/2018/12/07/02内建函数-数学函数/" class="b-link-green">02内建函数-数学函数</a>
                 </p>
             </div>
         </div>
@@ -693,22 +755,19 @@ to_char(&#39;2008718&#39;, &#39;yyyymmdd&#39;) -- 会引发异常
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">Previous</div>
             <div class="card">
-                <a href="/2018/12/07/02内建函数-数学函数/">
+                <a href="/2018/12/07/04内建函数-聚合函数/">
                     <div class="card-image">
                         
-                        <img src="/source/images/1.jpg" class="responsive-img" alt="02内建函数-数学函数">
+                        <img src="/source/images/1.jpg" class="responsive-img" alt="04内建函数-聚合函数">
                         
-                        <span class="card-title">02内建函数-数学函数</span>
+                        <span class="card-title">04内建函数-聚合函数</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">数学函数ABSDouble abs(Double number)
-Bigint abs(Bigint number)
-Decimal abs(Decimal number)
-
+                    <div class="summary">聚合函数聚合函数，其输入与输出是多对一的关系，即将多条输入记录聚合成一条输出值。可以与SQL中的group by语句联用。
+COUNTbigint count([distinct|all] value)
 命令说明如下：
-该函数用于返回number的绝对值。
-参数说明：</div>
+该函数用于计算记录数</div>
                     <div class="publish-info">
                         <span class="publish-date">
                             <i class="fa fa-clock-o fa-fw icon-date"></i>2018-12-07
@@ -739,7 +798,7 @@ Decimal abs(Decimal number)
         
         
         <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">Current</div>
+            <div class="article-badge right-badge text-color">Next</div>
             <div class="card">
                 <a href="/2018/09/07/01内建函数-日期函数/">
                     <div class="card-image">
@@ -771,7 +830,6 @@ date：Datetime类型，日期值。若</div>
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
