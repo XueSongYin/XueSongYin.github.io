@@ -5,13 +5,9 @@
 
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="105内建函数-字符串函数, Hexo">
-    <meta name="description" content="字符串函数CHAR_MATCHCOUNTbigint char_matchcount(string str1, string str2)
-命令说明如下：
-该函数用于计算str1中有多少个字符出现在str2中。
-参数说明：
-
-str1，str">
+    <meta name="keywords" content="202-SEMI JOIN, Hexo">
+    <meta name="description" content="SEMI JOINMaxCompute支持SEMI JOIN（半连接）。SEMI JOIN中，右表只用来过滤左表的数据而不出现在结果集中。支持LEFT SEMI JOIN和LEFT ANTI JOIN两种语法。
+LEFT SEMI JOIN">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -19,7 +15,7 @@ str1，str">
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>105内建函数-字符串函数 | Hexo</title>
+    <title>202-SEMI JOIN | Hexo</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -270,13 +266,13 @@ str1，str">
 
 
 
-<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/7.jpg')">
+<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/13.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        105内建函数-字符串函数
+                        202-SEMI JOIN
                     </div>
                 </div>
             </div>
@@ -296,8 +292,8 @@ str1，str">
             
             <div class="article-tag">
                 
-                <a href="/tags/Maxcompute-内建函数/" target="_blank">
-                    <span class="chip bg-color">Maxcompute-内建函数</span>
+                <a href="/tags/Maxcompute-Select/" target="_blank">
+                    <span class="chip bg-color">Maxcompute-Select</span>
                 </a>
                 
             </div>
@@ -315,81 +311,23 @@ str1，str">
                 
 
                 <span class="post-date">
-                    <i class="fa fa-clock-o fa-fw"></i>2018-12-07
+                    <i class="fa fa-clock-o fa-fw"></i>2018-12-13
                 </span>
             </div>
         </div>
         <hr>
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="字符串函数"><a href="#字符串函数" class="headerlink" title="字符串函数"></a>字符串函数</h3><h4 id="CHAR-MATCHCOUNT"><a href="#CHAR-MATCHCOUNT" class="headerlink" title="CHAR_MATCHCOUNT"></a>CHAR_MATCHCOUNT</h4><pre><code>bigint char_matchcount(string str1, string str2)
-</code></pre><p>命令说明如下：</p>
-<p>该函数用于计算str1中有多少个字符出现在str2中。</p>
-<p>参数说明：</p>
-<ul>
-<li>str1，str2：String类型，必须为有效的UTF-8字符串，如果对比中发现有无效字符则函数返回负值。</li>
-<li>bigint：返回值为bigint类型。任一输入为NULL返回NULL。<br>示例如下：</li>
-</ul>
-<pre><code>char_matchcount(&#39;abd&#39;,&#39;aabc&#39;) = 2
--- str1中得两个字符串&#39;a&#39;,&#39;b&#39;在str2中出现过
+                <h3 id="SEMI-JOIN"><a href="#SEMI-JOIN" class="headerlink" title="SEMI JOIN"></a>SEMI JOIN</h3><p>MaxCompute支持SEMI JOIN（半连接）。SEMI JOIN中，右表只用来过滤左表的数据而不出现在结果集中。支持LEFT SEMI JOIN和LEFT ANTI JOIN两种语法。</p>
+<h4 id="LEFT-SEMI-JOIN"><a href="#LEFT-SEMI-JOIN" class="headerlink" title="LEFT SEMI JOIN"></a>LEFT SEMI JOIN</h4><p>当Join条件成立时，返回左表中的数据。也就是mytable1中某行的Id在mytable2的所有Id中出现过，此行就保留在结果集中。</p>
+<pre><code>SELECT * from mytable1 a LEFT SEMI JOIN mytable2 b on a.id=b.id;
 
-</code></pre><h4 id="CHR"><a href="#CHR" class="headerlink" title="CHR"></a>CHR</h4><pre><code>string chr(bigint ascii)
-</code></pre><p>命令说明如下：</p>
-<p>该函数用于将给定ASCII码ascii转换成字符。</p>
-<p>参数说明：<br>ascii：Bigint类型ASCII值，若输入为String类型或Double类型或Decimal类型会隐式转换到Bigint类型后参与运算，其它类型抛异常。<br>String：返回值为String类型。参数范围是0~255，超过此范围会引发异常。输入值为NULL返回NULL。</p>
-<h4 id="CONCAT"><a href="#CONCAT" class="headerlink" title="CONCAT"></a>CONCAT</h4><pre><code>string concat(string a, string b...)
-</code></pre><p>命令说明如下：</p>
-<p>该函数的返回值是将参数中的所有字符串连接在一起的结果。</p>
-<p>参数说明：<br>a，b等为String类型，若输入为Bigint，Double，Decimal或者Datetime类型会隐式转换为String后参与运算，其它类型报异常。<br>String：返回值为String类型。如果没有参数或者某个参数为NULL，结果均返回NULL。</p>
-<pre><code>concat(&#39;ab&#39;,&#39;c&#39;) = &#39;abc&#39;
-concat() = NULL
-concat(&#39;a&#39;, null, &#39;b&#39;) = NULL
+</code></pre><p>只会返回mytable1中的数据，只要mytable1的Id在mytable2的Id中出现。</p>
+<h4 id="LEFT-ANTI-JOIN"><a href="#LEFT-ANTI-JOIN" class="headerlink" title="LEFT ANTI JOIN"></a>LEFT ANTI JOIN</h4><p>当Join条件不成立时，返回左表中的数据。也就是mytable1中某行的Id在mytable2的所有Id中没有出现过，此行便保留在结果集中。</p>
+<pre><code>SELECT * from mytable1 a LEFT ANTI JOIN mytable2 b on a.id=b.id;
 
-</code></pre><h4 id="GET-JSON-OBJECT"><a href="#GET-JSON-OBJECT" class="headerlink" title="GET_JSON_OBJECT"></a>GET_JSON_OBJECT</h4><pre><code>STRING GET_JSON_OBJECT(STRING json,STRING path)
+</code></pre><p>只会返回mytable1中的数据，只要mytable1的Id在mytable2的Id没有出现。</p>
 
-</code></pre><blockquote>
-<p>该函数用于在一个标准JSON字符串中，按照path抽取指定的字符串。每次调用该函数时，都会读一次原始数据，因此反复调用可能会造成性能和费用的浪费。利用GET_JSON_OBJECT结合UDTF，您可以轻松转换JSON格式日志数据，避免多次调用函数</p>
-</blockquote>
-<p>参数说明：</p>
-<ul>
-<li>json： String类型，标准的json格式字符串。</li>
-<li>path：String类型，用于描述在json中的path，以$开头。关于新实现中json path的说明，请参见：LanguageManual UDF。<ul>
-<li>$ : 表示根节点</li>
-<li>. : 表示child</li>
-<li>[] : [number]表示数组下标，对于数组，格式为key[sub1][sub2][sub3]……</li>
-<li><ul>
-<li>: Wildcard for []，返回整个数组，*不支持转义</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>String：返回值为String类型。</li>
-</ul>
-<p>示例一如下：</p>
-<pre><code>+----+
-json
-+----+
-{&quot;store&quot;:
-{&quot;fruit&quot;:[{&quot;weight&quot;:8,&quot;type&quot;:&quot;apple&quot;},{&quot;weight&quot;:9,&quot;type&quot;:&quot;pear&quot;}],
-&quot;bicycle&quot;:{&quot;price&quot;:19.95,&quot;color&quot;:&quot;red&quot;}
-},
-&quot;email&quot;:&quot;amy@only_for_json_udf_test.net&quot;,
-&quot;owner&quot;:&quot;amy&quot;
-}
-</code></pre><p>通过以下查询，可以提取json对象中的信息：</p>
-<pre><code>odps&gt; SELECT get_json_object(src_json.json, &#39;$.owner&#39;) FROM src_json;
-amy
-odps&gt; SELECT get_json_object(src_json.json, &#39;$.store.fruit\[0]&#39;) FROM src_json;
-{&quot;weight&quot;:8,&quot;type&quot;:&quot;apple&quot;}
-odps&gt; SELECT get_json_object(src_json.json, &#39;$.non_exist_key&#39;) FROM src_json;
-NULL
-
-</code></pre><p>示例二如下：</p>
-<pre><code>get_json_object(&#39;{&quot;array&quot;:[[&quot;aaaa&quot;,1111],[&quot;bbbb&quot;,2222],[&quot;cccc&quot;,3333]]}&#39;,&#39;$.array[1][1]&#39;)= &quot;2222&quot;
-get_json_object(&#39;{&quot;aaa&quot;:&quot;bbb&quot;,&quot;ccc&quot;:{&quot;ddd&quot;:&quot;eee&quot;,&quot;fff&quot;:&quot;ggg&quot;,&quot;hhh&quot;:[&quot;h0&quot;,&quot;h1&quot;,&quot;h2&quot;]},&quot;iii&quot;:&quot;jjj&quot;}&#39;,&#39;$.ccc.hhh[*]&#39;) = &quot;[&quot;h0&quot;,&quot;h1&quot;,&quot;h2&quot;]&quot;
-get_json_object(&#39;{&quot;aaa&quot;:&quot;bbb&quot;,&quot;ccc&quot;:{&quot;ddd&quot;:&quot;eee&quot;,&quot;fff&quot;:&quot;ggg&quot;,&quot;hhh&quot;:[&quot;h0&quot;,&quot;h1&quot;,&quot;h2&quot;]},&quot;iii&quot;:&quot;jjj&quot;}&#39;,&#39;$.ccc.hhh[1]&#39;) = &quot;h1&quot;
-
-</code></pre>
             </div>
             <hr>
 
@@ -527,7 +465,7 @@ get_json_object(&#39;{&quot;aaa&quot;:&quot;bbb&quot;,&quot;ccc&quot;:{&quot;ddd
                     <span class="reprint-tip">Reprint please specify: </span>
                     <a href="http://yoursite.com" class="b-link-green">Hexo</a>
                     <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
-                    <a href="/2018/12/07/05内建函数-字符串函数(待续)/" class="b-link-green">105内建函数-字符串函数</a>
+                    <a href="/2018/12/13/SEMI JOIN/" class="b-link-green">202-SEMI JOIN</a>
                 </p>
             </div>
         </div>
@@ -551,21 +489,21 @@ get_json_object(&#39;{&quot;aaa&quot;:&quot;bbb&quot;,&quot;ccc&quot;:{&quot;ddd
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">Previous</div>
             <div class="card">
-                <a href="/2018/12/07/JOIN/">
+                <a href="/2018/12/14/MAPJOIN HINT/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="201JOIN">
+                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="203-MAPJOIN HINT数">
                         
-                        <span class="card-title">201JOIN</span>
+                        <span class="card-title">203-MAPJOIN HINT数</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">left outer join左连接，会从左表（shop）中返回所有的记录，即使在右表（sale_detail）中没有匹配的行
-select a.shop_name as ashop, b.shop_name as bshop from s</div>
+                    <div class="summary">MAPJOIN HINT当一个大表和一个或多个小表做Join时，可以使用MapJoin，性能比普通的Join要快很多。
+原理MapJoin 的基本原理为：在小数据量情况下，SQL会将您指定的小表全部加载到执行Join操作的程序的内存中，从而</div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2018-12-07
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2018-12-14
                         </span>
                         <span class="publish-author">
                             
@@ -595,21 +533,21 @@ select a.shop_name as ashop, b.shop_name as bshop from s</div>
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">Next</div>
             <div class="card">
-                <a href="/2018/12/07/SEMI JOIN/">
+                <a href="/2018/12/12/JOIN/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="202SEMI JOIN">
+                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="201-JOIN">
                         
-                        <span class="card-title">202SEMI JOIN</span>
+                        <span class="card-title">201-JOIN</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">SEMI JOINMaxCompute支持SEMI JOIN（半连接）。SEMI JOIN中，右表只用来过滤左表的数据而不出现在结果集中。支持LEFT SEMI JOIN和LEFT ANTI JOIN两种语法。
-LEFT SEMI JOIN</div>
+                    <div class="summary">left outer join左连接，会从左表（shop）中返回所有的记录，即使在右表（sale_detail）中没有匹配的行
+select a.shop_name as ashop, b.shop_name as bshop from s</div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-12-07
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-12-12
                             </span>
                         <span class="publish-author">
                             

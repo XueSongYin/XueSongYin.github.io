@@ -5,9 +5,14 @@
 
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="202SEMI JOIN, Hexo">
-    <meta name="description" content="SEMI JOINMaxCompute支持SEMI JOIN（半连接）。SEMI JOIN中，右表只用来过滤左表的数据而不出现在结果集中。支持LEFT SEMI JOIN和LEFT ANTI JOIN两种语法。
-LEFT SEMI JOIN">
+    <meta name="keywords" content="103-内建函数-窗口函数, Hexo">
+    <meta name="description" content="窗口函数
+只能出现在select子句中
+目前在一个MaxCompute SQL语句中，最多可以使用5个窗口函数。
+窗口函数中不要嵌套使用窗口函数和聚合函数
+窗口函数不可以和同级别的聚合函数一起使用
+
+语法声明window_func() ov">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -15,7 +20,7 @@ LEFT SEMI JOIN">
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>202SEMI JOIN | Hexo</title>
+    <title>103-内建函数-窗口函数 | Hexo</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -266,13 +271,13 @@ LEFT SEMI JOIN">
 
 
 
-<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/8.jpg')">
+<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/21.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        202SEMI JOIN
+                        103-内建函数-窗口函数
                     </div>
                 </div>
             </div>
@@ -292,8 +297,8 @@ LEFT SEMI JOIN">
             
             <div class="article-tag">
                 
-                <a href="/tags/Maxcompute-Select/" target="_blank">
-                    <span class="chip bg-color">Maxcompute-Select</span>
+                <a href="/tags/Maxcompute-内建函数/" target="_blank">
+                    <span class="chip bg-color">Maxcompute-内建函数</span>
                 </a>
                 
             </div>
@@ -311,22 +316,34 @@ LEFT SEMI JOIN">
                 
 
                 <span class="post-date">
-                    <i class="fa fa-clock-o fa-fw"></i>2018-12-07
+                    <i class="fa fa-clock-o fa-fw"></i>2018-12-09
                 </span>
             </div>
         </div>
         <hr>
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="SEMI-JOIN"><a href="#SEMI-JOIN" class="headerlink" title="SEMI JOIN"></a>SEMI JOIN</h3><p>MaxCompute支持SEMI JOIN（半连接）。SEMI JOIN中，右表只用来过滤左表的数据而不出现在结果集中。支持LEFT SEMI JOIN和LEFT ANTI JOIN两种语法。</p>
-<h4 id="LEFT-SEMI-JOIN"><a href="#LEFT-SEMI-JOIN" class="headerlink" title="LEFT SEMI JOIN"></a>LEFT SEMI JOIN</h4><p>当Join条件成立时，返回左表中的数据。也就是mytable1中某行的Id在mytable2的所有Id中出现过，此行就保留在结果集中。</p>
-<pre><code>SELECT * from mytable1 a LEFT SEMI JOIN mytable2 b on a.id=b.id;
+                <h3 id="窗口函数"><a href="#窗口函数" class="headerlink" title="窗口函数"></a>窗口函数</h3><ul>
+<li>只能出现在select子句中</li>
+<li>目前在一个MaxCompute SQL语句中，最多可以使用5个窗口函数。</li>
+<li>窗口函数中不要嵌套使用窗口函数和聚合函数</li>
+<li>窗口函数不可以和同级别的聚合函数一起使用</li>
+</ul>
+<h3 id="语法声明"><a href="#语法声明" class="headerlink" title="语法声明"></a>语法声明</h3><pre><code>window_func() over (partition by [col1,col2…]
+[order by [col1[asc|desc], col2[asc|desc]…]] windowing_clause)
 
-</code></pre><p>只会返回mytable1中的数据，只要mytable1的Id在mytable2的Id中出现。</p>
-<h4 id="LEFT-ANTI-JOIN"><a href="#LEFT-ANTI-JOIN" class="headerlink" title="LEFT ANTI JOIN"></a>LEFT ANTI JOIN</h4><p>当Join条件不成立时，返回左表中的数据。也就是mytable1中某行的Id在mytable2的所有Id中没有出现过，此行便保留在结果集中。</p>
-<pre><code>SELECT * from mytable1 a LEFT ANTI JOIN mytable2 b on a.id=b.id;
-
-</code></pre><p>只会返回mytable1中的数据，只要mytable1的Id在mytable2的Id没有出现。</p>
+</code></pre><ul>
+<li>partition by部分用来指定开窗的列。分区列的值相同的行被视为在同一个窗口内。现阶段，同一窗口内最多包含1亿行数据（建议不超过500万行），否则运行时报错。</li>
+<li>order by用来指定数据在一个窗口内如何排序。</li>
+<li><p>windowing_clause部分可以用rows指定开窗方式，有以下两种方式：</p>
+<blockquote>
+<p>rows between x preceding|following and y preceding|following表示窗口范围是从前或后x行到前或后y行。</p>
+</blockquote>
+<blockquote>
+<p>rows x preceding|following窗口范围是从前或后第x行到当前行。</p>
+</blockquote>
+</li>
+</ul>
 
             </div>
             <hr>
@@ -465,7 +482,7 @@ LEFT SEMI JOIN">
                     <span class="reprint-tip">Reprint please specify: </span>
                     <a href="http://yoursite.com" class="b-link-green">Hexo</a>
                     <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
-                    <a href="/2018/12/07/SEMI JOIN/" class="b-link-green">202SEMI JOIN</a>
+                    <a href="/2018/12/09/03内建函数-窗口函数/" class="b-link-green">103-内建函数-窗口函数</a>
                 </p>
             </div>
         </div>
@@ -489,25 +506,23 @@ LEFT SEMI JOIN">
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">Previous</div>
             <div class="card">
-                <a href="/2018/12/07/05内建函数-字符串函数(待续)/">
+                <a href="/2018/12/10/04内建函数-聚合函数/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="105内建函数-字符串函数">
+                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="104-内建函数-聚合函数">
                         
-                        <span class="card-title">105内建函数-字符串函数</span>
+                        <span class="card-title">104-内建函数-聚合函数</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">字符串函数CHAR_MATCHCOUNTbigint char_matchcount(string str1, string str2)
+                    <div class="summary">聚合函数聚合函数，其输入与输出是多对一的关系，即将多条输入记录聚合成一条输出值。可以与SQL中的group by语句联用。
+COUNTbigint count([distinct|all] value)
 命令说明如下：
-该函数用于计算str1中有多少个字符出现在str2中。
-参数说明：
-
-str1，str</div>
+该函数用于计算记录数</div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2018-12-07
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2018-12-10
                         </span>
                         <span class="publish-author">
                             
@@ -537,21 +552,26 @@ str1，str</div>
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">Next</div>
             <div class="card">
-                <a href="/2018/12/07/MAPJOIN HINT/">
+                <a href="/2018/12/08/02内建函数-数学函数/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="203MAPJOIN HINT数">
+                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="102-内建函数-数学函数">
                         
-                        <span class="card-title">203MAPJOIN HINT数</span>
+                        <span class="card-title">102-内建函数-数学函数</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">MAPJOIN HINT当一个大表和一个或多个小表做Join时，可以使用MapJoin，性能比普通的Join要快很多。
-原理MapJoin 的基本原理为：在小数据量情况下，SQL会将您指定的小表全部加载到执行Join操作的程序的内存中，从而</div>
+                    <div class="summary">数学函数ABSDouble abs(Double number)
+Bigint abs(Bigint number)
+Decimal abs(Decimal number)
+
+命令说明如下：
+该函数用于返回number的绝对值。
+参数说明：</div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-12-07
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-12-08
                             </span>
                         <span class="publish-author">
                             
@@ -568,8 +588,8 @@ str1，str</div>
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Maxcompute-Select/" target="_blank">
-                        <span class="chip bg-color">Maxcompute-Select</span>
+                    <a href="/tags/Maxcompute-内建函数/" target="_blank">
+                        <span class="chip bg-color">Maxcompute-内建函数</span>
                     </a>
                     
                 </div>
