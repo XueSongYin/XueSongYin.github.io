@@ -551,20 +551,18 @@ get_json_object(&#39;{&quot;aaa&quot;:&quot;bbb&quot;,&quot;ccc&quot;:{&quot;ddd
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">Previous</div>
             <div class="card">
-                <a href="/2018/12/07/04内建函数-聚合函数/">
+                <a href="/2018/12/07/JOIN/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="104内建函数-聚合函数">
+                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="201JOIN">
                         
-                        <span class="card-title">104内建函数-聚合函数</span>
+                        <span class="card-title">201JOIN</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">聚合函数聚合函数，其输入与输出是多对一的关系，即将多条输入记录聚合成一条输出值。可以与SQL中的group by语句联用。
-COUNTbigint count([distinct|all] value)
-命令说明如下：
-该函数用于计算记录数</div>
+                    <div class="summary">left outer join左连接，会从左表（shop）中返回所有的记录，即使在右表（sale_detail）中没有匹配的行
+select a.shop_name as ashop, b.shop_name as bshop from s</div>
                     <div class="publish-info">
                         <span class="publish-date">
                             <i class="fa fa-clock-o fa-fw icon-date"></i>2018-12-07
@@ -584,8 +582,8 @@ COUNTbigint count([distinct|all] value)
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Maxcompute-内建函数/" target="_blank">
-                        <span class="chip bg-color">Maxcompute-内建函数</span>
+                    <a href="/tags/Maxcompute-Select/" target="_blank">
+                        <span class="chip bg-color">Maxcompute-Select</span>
                     </a>
                     
                 </div>
@@ -597,18 +595,18 @@ COUNTbigint count([distinct|all] value)
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">Next</div>
             <div class="card">
-                <a href="/2018/12/07/JOIN/">
+                <a href="/2018/12/07/SEMI JOIN/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="201JOIN">
+                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="202SEMI JOIN">
                         
-                        <span class="card-title">201JOIN</span>
+                        <span class="card-title">202SEMI JOIN</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">left outer join左连接，会从左表（shop）中返回所有的记录，即使在右表（sale_detail）中没有匹配的行
-select a.shop_name as ashop, b.shop_name as bshop from s</div>
+                    <div class="summary">SEMI JOINMaxCompute支持SEMI JOIN（半连接）。SEMI JOIN中，右表只用来过滤左表的数据而不出现在结果集中。支持LEFT SEMI JOIN和LEFT ANTI JOIN两种语法。
+LEFT SEMI JOIN</div>
                     <div class="publish-info">
                             <span class="publish-date">
                                 <i class="fa fa-clock-o fa-fw icon-date"></i>2018-12-07
