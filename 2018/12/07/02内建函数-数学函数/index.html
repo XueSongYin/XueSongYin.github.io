@@ -5,7 +5,7 @@
 
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="02内建函数-数学函数, Hexo">
+    <meta name="keywords" content="102内建函数-数学函数, Hexo">
     <meta name="description" content="数学函数ABSDouble abs(Double number)
 Bigint abs(Bigint number)
 Decimal abs(Decimal number)
@@ -20,7 +20,7 @@ Decimal abs(Decimal number)
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>02内建函数-数学函数 | Hexo</title>
+    <title>102内建函数-数学函数 | Hexo</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -271,13 +271,13 @@ Decimal abs(Decimal number)
 
 
 
-<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/12.jpg')">
+<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/11.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        02内建函数-数学函数
+                        102内建函数-数学函数
                     </div>
                 </div>
             </div>
@@ -731,7 +731,7 @@ trunc(123.345,-4)=0.0
                     <span class="reprint-tip">Reprint please specify: </span>
                     <a href="http://yoursite.com" class="b-link-green">Hexo</a>
                     <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
-                    <a href="/2018/12/07/02内建函数-数学函数/" class="b-link-green">02内建函数-数学函数</a>
+                    <a href="/2018/12/07/02内建函数-数学函数/" class="b-link-green">102内建函数-数学函数</a>
                 </p>
             </div>
         </div>
@@ -755,23 +755,18 @@ trunc(123.345,-4)=0.0
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">Previous</div>
             <div class="card">
-                <a href="/2018/12/07/03内建函数-窗口函数/">
+                <a href="/2018/12/07/JOIN/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="03内建函数-窗口函数">
+                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="201JOIN">
                         
-                        <span class="card-title">03内建函数-窗口函数</span>
+                        <span class="card-title">201JOIN</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">窗口函数
-只能出现在select子句中
-目前在一个MaxCompute SQL语句中，最多可以使用5个窗口函数。
-窗口函数中不要嵌套使用窗口函数和聚合函数
-窗口函数不可以和同级别的聚合函数一起使用
-
-语法声明window_func() ov</div>
+                    <div class="summary">left outer join左连接，会从左表（shop）中返回所有的记录，即使在右表（sale_detail）中没有匹配的行
+select a.shop_name as ashop, b.shop_name as bshop from s</div>
                     <div class="publish-info">
                         <span class="publish-date">
                             <i class="fa fa-clock-o fa-fw icon-date"></i>2018-12-07
@@ -791,8 +786,8 @@ trunc(123.345,-4)=0.0
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Maxcompute-内建函数/" target="_blank">
-                        <span class="chip bg-color">Maxcompute-内建函数</span>
+                    <a href="/tags/Maxcompute-Select/" target="_blank">
+                        <span class="chip bg-color">Maxcompute-Select</span>
                     </a>
                     
                 </div>
@@ -804,20 +799,18 @@ trunc(123.345,-4)=0.0
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">Next</div>
             <div class="card">
-                <a href="/2018/12/07/04内建函数-聚合函数/">
+                <a href="/2018/12/07/SEMI JOIN/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="04内建函数-聚合函数">
+                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="202SEMI JOIN">
                         
-                        <span class="card-title">04内建函数-聚合函数</span>
+                        <span class="card-title">202SEMI JOIN</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">聚合函数聚合函数，其输入与输出是多对一的关系，即将多条输入记录聚合成一条输出值。可以与SQL中的group by语句联用。
-COUNTbigint count([distinct|all] value)
-命令说明如下：
-该函数用于计算记录数</div>
+                    <div class="summary">SEMI JOINMaxCompute支持SEMI JOIN（半连接）。SEMI JOIN中，右表只用来过滤左表的数据而不出现在结果集中。支持LEFT SEMI JOIN和LEFT ANTI JOIN两种语法。
+LEFT SEMI JOIN</div>
                     <div class="publish-info">
                             <span class="publish-date">
                                 <i class="fa fa-clock-o fa-fw icon-date"></i>2018-12-07
@@ -837,8 +830,8 @@ COUNTbigint count([distinct|all] value)
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Maxcompute-内建函数/" target="_blank">
-                        <span class="chip bg-color">Maxcompute-内建函数</span>
+                    <a href="/tags/Maxcompute-Select/" target="_blank">
+                        <span class="chip bg-color">Maxcompute-Select</span>
                     </a>
                     
                 </div>
