@@ -6,13 +6,16 @@
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
     <meta name="keywords" content="102-内建函数-数学函数, Hexo">
-    <meta name="description" content="数学函数ABSDouble abs(Double number)
+    <meta name="description" content="数学函数
+ABS
+Double abs(Double number)
 Bigint abs(Bigint number)
 Decimal abs(Decimal number)
 
+
 命令说明如下：
 该函数用于返回number的绝对值。
-参数说明：">
+参数">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -327,18 +330,22 @@ Decimal abs(Decimal number)
         <hr>
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="数学函数"><a href="#数学函数" class="headerlink" title="数学函数"></a>数学函数</h3><h4 id="ABS"><a href="#ABS" class="headerlink" title="ABS"></a>ABS</h4><pre><code>Double abs(Double number)
+                <h3>数学函数</h3>
+<h4>ABS</h4>
+<pre><code>Double abs(Double number)
 Bigint abs(Bigint number)
 Decimal abs(Decimal number)
 
-</code></pre><p>命令说明如下：</p>
+</code></pre>
+<p>命令说明如下：</p>
 <p>该函数用于返回number的绝对值。</p>
 <p>参数说明：</p>
 <p>number：当number为Double、Bigint或Decimal类型时。</p>
 <ul>
 <li>输入为Bigint，返回Bigint。</li>
 <li>输入为Double，返回Double类型。</li>
-<li>输入为Decimal，返回Decimal类型。<br>若输入为String类型，会隐式转换为Double类型后参与运算，其它类型抛异常。</li>
+<li>输入为Decimal，返回Decimal类型。<br>
+若输入为String类型，会隐式转换为Double类型后参与运算，其它类型抛异常。</li>
 </ul>
 <p>返回值：</p>
 <p>返回Double、Bigint或Decimal类型，取决于输入参数的类型。若输入为null，则返回null。</p>
@@ -353,10 +360,13 @@ abs(122320837456298376592387456923748)=1.2232083745629837e32
 select abs(id) from tbl1;
 -- 取tbl1表内id字段的绝对值
 
-</code></pre><h4 id="ACOS"><a href="#ACOS" class="headerlink" title="ACOS"></a>ACOS</h4><pre><code>Double acos(Double number)
+</code></pre>
+<h4>ACOS</h4>
+<pre><code>Double acos(Double number)
 Decimal acos(Decimal number)
 
-</code></pre><p>命令说明如下：</p>
+</code></pre>
+<p>命令说明如下：</p>
 <p>该函数用于计算number的反余弦函数。</p>
 <p>参数说明：</p>
 <ul>
@@ -366,10 +376,13 @@ Decimal acos(Decimal number)
 <p>返回Double类型或Decimal类型，值域在0 ~ π之间。若number为null，则返回null。</p>
 <pre><code>acos(&quot;0.87&quot;)=0.5155940062460905
 acos(0)=1.5707963267948966
-</code></pre><h4 id="ASIN"><a href="#ASIN" class="headerlink" title="ASIN"></a>ASIN</h4><pre><code>Double asin(Double number)
+</code></pre>
+<h4>ASIN</h4>
+<pre><code>Double asin(Double number)
 Decimal asin(Decimal number)
 
-</code></pre><p>命令说明如下：</p>
+</code></pre>
+<p>命令说明如下：</p>
 <p>该函数用于计算number的反正弦函数。</p>
 <p>参数说明：</p>
 <ul>
@@ -379,8 +392,11 @@ Decimal asin(Decimal number)
 <p>返回Double类型或Decimal类型，值域在-π/2 ~π/2之间。若number为null，返回null。</p>
 <pre><code>asin(1)=1.5707963267948966
 asin(-1)=-1.5707963267948966
-</code></pre><h4 id="ATAN"><a href="#ATAN" class="headerlink" title="ATAN"></a>ATAN</h4><pre><code>Double atan(Double number)
-</code></pre><p>命令说明如下：</p>
+</code></pre>
+<h4>ATAN</h4>
+<pre><code>Double atan(Double number)
+</code></pre>
+<p>命令说明如下：</p>
 <p>该函数用于计算number的反正切函数。</p>
 <p>参数说明：</p>
 <ul>
@@ -390,9 +406,12 @@ asin(-1)=-1.5707963267948966
 <p>返回Double类型，值域在-π/2~π/2之间。若number为null，则返回null。</p>
 <pre><code>atan(1)=0.7853981633974483
 atan(-1)=-0.7853981633974483
-</code></pre><h4 id="CEIL"><a href="#CEIL" class="headerlink" title="CEIL"></a>CEIL</h4><pre><code>Bigint ceil(Double value)
+</code></pre>
+<h4>CEIL</h4>
+<pre><code>Bigint ceil(Double value)
 Bigint ceil(Decimal value)
-</code></pre><p>命令说明如下：</p>
+</code></pre>
+<p>命令说明如下：</p>
 <p>向上取整，函数返回不小于输入值value的最小整数。</p>
 <p>参数说明：</p>
 <p>value：Double类型或Decimal类型，若输入为String类型或Bigint类型，会隐式转换到Double类型后参与运算，其他类型抛异常。</p>
@@ -401,10 +420,13 @@ Bigint ceil(Decimal value)
 <pre><code>ceil(1.1)=2
 ceil(-1.1)=-1
 
-</code></pre><h4 id="CONV"><a href="#CONV" class="headerlink" title="CONV"></a>CONV</h4><pre><code>
+</code></pre>
+<h4>CONV</h4>
+<pre><code>
 String conv(String input, Bigint from_base, Bigint to_base)
 
-</code></pre><p>命令说明如下：</p>
+</code></pre>
+<p>命令说明如下：</p>
 <p>该函数为进制转换函数。</p>
 <p>参数说明：</p>
 <ul>
@@ -413,14 +435,17 @@ String conv(String input, Bigint from_base, Bigint to_base)
 </ul>
 <p>返回值：</p>
 <p>返回String类型。任意一个参数输入为null，返回null。转换过程以64位精度工作，溢出时报异常。输入如果是负值，即以（-）开头，报异常。如果输入的是小数，则会转为整数值后进行进制转换，小数部分会被舍弃。</p>
-<pre><code>conv(&#39;1100&#39;, 2, 10)=&#39;12&#39;
-conv(&#39;1100&#39;, 2, 16)=&#39;c&#39;
-conv(&#39;ab&#39;, 16, 10)=&#39;171&#39;
-conv(&#39;ab&#39;, 16, 16)=&#39;ab&#39;
+<pre><code>conv('1100', 2, 10)='12'
+conv('1100', 2, 16)='c'
+conv('ab', 16, 10)='171'
+conv('ab', 16, 16)='ab'
 
-</code></pre><h4 id="COS"><a href="#COS" class="headerlink" title="COS"></a>COS</h4><pre><code>Double cos(Double number)
+</code></pre>
+<h4>COS</h4>
+<pre><code>Double cos(Double number)
 Decimal cos(Decimal number)
-</code></pre><p>命令说明如下：</p>
+</code></pre>
+<p>命令说明如下：</p>
 <p>该函数用于计算number的余弦函数，输入为弧度值。</p>
 <p>参数说明：</p>
 <ul>
@@ -430,26 +455,33 @@ Decimal cos(Decimal number)
 <p>返回Double类型或Decimal类型。若number为null，则返回null。</p>
 <pre><code>cos(3.1415926/2)=2.6794896585028633e-8
 cos(3.1415926)=-0.9999999999999986
-</code></pre><h4 id="COSH"><a href="#COSH" class="headerlink" title="COSH"></a>COSH</h4><pre><code>Double cosh(Double number)
+</code></pre>
+<h4>COSH</h4>
+<pre><code>Double cosh(Double number)
 Decimal cosh(Decimal number)
-</code></pre><p>命令说明如下：</p>
+</code></pre>
+<p>命令说明如下：</p>
 <p>该函数用于计算number的双曲余弦函数。</p>
 <p>参数说明：</p>
 <p>number：Double类型或Decimal类型。若输入为String类型或Bigint类型，会隐式转换为Double类型后，参与运算，其他类型抛异常。</p>
 <p>返回值：</p>
 <p>返回Double类型或Decimal类型。若number为null，返回null。</p>
-<h4 id="COT"><a href="#COT" class="headerlink" title="COT"></a>COT</h4><pre><code>Double cot(Double number)
+<h4>COT</h4>
+<pre><code>Double cot(Double number)
 Decimal cot(Decimal number)
 
-</code></pre><p>命令说明如下：</p>
+</code></pre>
+<p>命令说明如下：</p>
 <p>该函数用于计算number的余切函数，输入为弧度值。</p>
 <p>参数说明：</p>
 <p>number：Double类型或Decimal类型。若输入为String类型或Bigint类型，会隐式转换为Double类型后参与运算，其他类型抛异常。</p>
 <p>返回值：</p>
 <p>返回Double类型或Decimal类型。若number为null，则返回null。</p>
-<h4 id="EXP"><a href="#EXP" class="headerlink" title="EXP"></a>EXP</h4><pre><code>Double exp(Double number)
+<h4>EXP</h4>
+<pre><code>Double exp(Double number)
 Decimal exp(Decimal number)
-</code></pre><p>命令说明如下：</p>
+</code></pre>
+<p>命令说明如下：</p>
 <p>该函数用于计算number的指数函数。</p>
 <p>返回值：</p>
 <p>返回number的指数值。</p>
@@ -457,9 +489,11 @@ Decimal exp(Decimal number)
 <p>number：Double类型或Decimal类型。若输入为String类型或Bigint类型，会隐式转换为Double类型后参与运算，其他类型抛异常。</p>
 <p>返回值：</p>
 <p>返回Double类型或Decimal类型。若number为null，则返回null。</p>
-<h4 id="FLOOR"><a href="#FLOOR" class="headerlink" title="FLOOR"></a>FLOOR</h4><pre><code>Bigint floor(Double number)
+<h4>FLOOR</h4>
+<pre><code>Bigint floor(Double number)
 Bigint floor(Decimal number)
-</code></pre><p>命令说明如下：</p>
+</code></pre>
+<p>命令说明如下：</p>
 <p>向下取整，函数返回不大于number的最大整数值。</p>
 <p>参数说明：</p>
 <p>number：Double类型或Decimal类型，若输入为String类型或Bigint类型，会隐式转换为Double类型后参与运算，其他类型抛异常。</p>
@@ -473,22 +507,28 @@ floor(-0.1)=-1
 floor(0.0)=0
 floor(-0.0)=0
 
-</code></pre><h4 id="LN"><a href="#LN" class="headerlink" title="LN"></a>LN</h4><pre><code>Double ln(Double number)
+</code></pre>
+<h4>LN</h4>
+<pre><code>Double ln(Double number)
 Decimal ln(Decimal number)
 
-</code></pre><p>命令说明如下：</p>
+</code></pre>
+<p>命令说明如下：</p>
 <p>该函数用于返回number的自然对数。</p>
 <p>参数说明：</p>
 <p>number：Double类型或Decimal类型。</p>
 <ul>
 <li>若输入为String类型或Bigint类型，会隐式转换为Double类型后参与运算，其他类型抛异常。</li>
-<li>若number为null，则返回null。若number为负数或零，则执行报错。<br>返回值：</li>
+<li>若number为null，则返回null。若number为负数或零，则执行报错。<br>
+返回值：</li>
 </ul>
 <p>返回Double类型或Decimal类型。</p>
-<h4 id="LOG"><a href="#LOG" class="headerlink" title="LOG"></a>LOG</h4><pre><code>Double log(Double base, Double x)
+<h4>LOG</h4>
+<pre><code>Double log(Double base, Double x)
 Decimal log(Decimal base, Decimal x)
 
-</code></pre><p>命令说明如下：</p>
+</code></pre>
+<p>命令说明如下：</p>
 <p>该函数用于返回以base为底的x的对数。</p>
 <p>参数说明：</p>
 <ul>
@@ -502,19 +542,24 @@ Decimal log(Decimal base, Decimal x)
 <li>若base和x中某一个值为负数或 0，会引发异常。</li>
 <li>若base为1（会引发一个除零行为），也会引发异常。</li>
 </ul>
-<h4 id="POW"><a href="#POW" class="headerlink" title="POW"></a>POW</h4><pre><code>Double pow(Double x, Double y)
+<h4>POW</h4>
+<pre><code>Double pow(Double x, Double y)
 Decimal pow(Decimal x, Decimal y)
-</code></pre><p>命令说明如下：</p>
+</code></pre>
+<p>命令说明如下：</p>
 <p>该函数用于返回x的y次方，即x^y。</p>
 <p>参数说明：</p>
 <ul>
 <li>X：Double类型或Decimal类型，若输入为String类型或Bigint类型，会隐式转换为Double类型后参与运算，其他类型抛异常。</li>
-<li>Y：Double类型或Decimal类型，若输入为String类型或Bigint类型，会隐式转换为Double类型后参与运算，其他类型抛异常。<br>返回值：</li>
+<li>Y：Double类型或Decimal类型，若输入为String类型或Bigint类型，会隐式转换为Double类型后参与运算，其他类型抛异常。<br>
+返回值：</li>
 </ul>
 <p>返回Double类型或Decimal类型。若x或y为null，则返回null。</p>
-<h4 id="RAND"><a href="#RAND" class="headerlink" title="RAND"></a>RAND</h4><pre><code>Double rand(Bigint seed)
+<h4>RAND</h4>
+<pre><code>Double rand(Bigint seed)
 
-</code></pre><p>命令说明如下：</p>
+</code></pre>
+<p>命令说明如下：</p>
 <p>该函数以seed为种子，返回Double类型的随机数，返回值区间是的0～1。</p>
 <p>参数说明：</p>
 <p>seed：可选参数，Bigint类型，随机数种子，决定随机数序列的起始值。</p>
@@ -523,15 +568,19 @@ Decimal pow(Decimal x, Decimal y)
 <p>示例如下：</p>
 <pre><code>select rand() from dual;
 select rand(1) from dual;
-</code></pre><h4 id="ROUND"><a href="#ROUND" class="headerlink" title="ROUND"></a>ROUND</h4><pre><code>Double round(Double number, [Bigint Decimal_places])
+</code></pre>
+<h4>ROUND</h4>
+<pre><code>Double round(Double number, [Bigint Decimal_places])
 Decimal round(Decimal number, [Bigint Decimal_places])
 
-</code></pre><p>命令说明如下：</p>
+</code></pre>
+<p>命令说明如下：</p>
 <p>该函数四舍五入到指定小数点位置。</p>
 <p>参数说明：</p>
 <ul>
 <li>number：Double类型或Decimal类型。若输入为String类型或Bigint类型，会隐式转换为Double类型后参与运算，其他类型抛异常。</li>
-<li>Decimal_place：Bigint类型常量，四舍五入计算到小数点后的位置，其他类型参数会引发异常。如果省略表示四舍五入到个位数，默认值为0。<br>返回值：</li>
+<li>Decimal_place：Bigint类型常量，四舍五入计算到小数点后的位置，其他类型参数会引发异常。如果省略表示四舍五入到个位数，默认值为0。<br>
+返回值：</li>
 </ul>
 <p>返回Double类型或Decimal类型。若number或Decimal_places为null，则返回null。</p>
 <pre><code>round(125.315)=125.0
@@ -544,46 +593,58 @@ round(123.345, -2)=100.0
 round(null)=null
 round(123.345, 4)=123.345
 round(123.345, -4)=0.0
-</code></pre><h4 id="SIN"><a href="#SIN" class="headerlink" title="SIN"></a>SIN</h4><pre><code>Double sin(Double number)
+</code></pre>
+<h4>SIN</h4>
+<pre><code>Double sin(Double number)
 Decimal sin(Decimal number)
-</code></pre><p>命令说明如下：</p>
+</code></pre>
+<p>命令说明如下：</p>
 <p>该函数用于计算number的正弦函数，输入为弧度值。</p>
 <p>参数说明：</p>
 <p>number：Double类型或Decimal类型。若输入为String类型或Bigint类型，会隐式转换为Double类型后参与运算，其他类型抛异常。</p>
 <p>返回值：</p>
 <p>返回Double类型或Decimal类型。若number为null，则返回null。</p>
-<h4 id="SINH"><a href="#SINH" class="headerlink" title="SINH"></a>SINH</h4><pre><code>Double sinh(Double number)
+<h4>SINH</h4>
+<pre><code>Double sinh(Double number)
 Decimal sinh(Decimal number)
-</code></pre><p>命令说明如下：</p>
+</code></pre>
+<p>命令说明如下：</p>
 <p>该函数用于计算number的双曲正弦函数。</p>
 <p>参数说明：</p>
 <p>number：Double类型或Decimal类型。若输入为String类型或Bigint类型，会隐式转换为Double类型后参与运算，其他类型抛异常。</p>
 <p>返回值：</p>
 <p>返回Double类型或Decimal类型。若number为null，则返回null。</p>
-<h4 id="SQRT"><a href="#SQRT" class="headerlink" title="SQRT"></a>SQRT</h4><pre><code>Double sqrt(Double number)
+<h4>SQRT</h4>
+<pre><code>Double sqrt(Double number)
 Decimal sqrt(Decimal number)
-</code></pre><p>命令说明如下：</p>
+</code></pre>
+<p>命令说明如下：</p>
 <p>该函数用于计算number的平方根。</p>
 <p>参数说明：</p>
 <p>number：Double类型或Decimal类型，必须大于0，小于0时引发异常。若输入为String类型或Bigint类型，会隐式转换为Double类型后参与运算，其他类型抛异常。</p>
 <p>返回值：</p>
 <p>返回Double类型或Decimal类型。若number为null，则返回null。</p>
-<h4 id="TANH"><a href="#TANH" class="headerlink" title="TANH"></a>TANH</h4><pre><code>Double tanh(Double number)
+<h4>TANH</h4>
+<pre><code>Double tanh(Double number)
 Decimal tanh(Decimal number)
-</code></pre><p>命令说明如下：</p>
+</code></pre>
+<p>命令说明如下：</p>
 <p>该函数用于计算number的双曲正切函数。</p>
 <p>参数说明：</p>
 <p>number：Double类型或Decimal类型。若输入为String类型或Bigint类型，会隐式转换为Double类型后参与运算，其他类型抛异常。</p>
 <p>返回值：</p>
 <p>返回Double类型或Decimal类型。若number为null，则返回null。</p>
-<h4 id="TRUNC"><a href="#TRUNC" class="headerlink" title="TRUNC"></a>TRUNC</h4><pre><code>Double trunc(Double number[, Bigint Decimal_places])
+<h4>TRUNC</h4>
+<pre><code>Double trunc(Double number[, Bigint Decimal_places])
 Decimal trunc(Decimal number[, Bigint Decimal_places])
-</code></pre><p>命令说明如下：</p>
+</code></pre>
+<p>命令说明如下：</p>
 <p>该函数用于将输入值number截取到指定小数点位置。</p>
 <p>参数说明：</p>
 <ul>
 <li>number：Double类型或Decimal类型，若输入为String类型或Bigint类型，会隐式转换为Double类型后参与运算，其他类型抛异常。</li>
-<li>Decimal_places：Bigint类型常量，要截取到的小数点位置，其他类型参数会隐式转为Bigint，省略此参数时默认到截取到个位数。<br>返回值：</li>
+<li>Decimal_places：Bigint类型常量，要截取到的小数点位置，其他类型参数会隐式转为Bigint，省略此参数时默认到截取到个位数。<br>
+返回值：</li>
 </ul>
 <p>返回值类型为Double或Decimal类型。若number或Decimal_places为null，则返回null。</p>
 <pre><code>trunc(125.815)=125.0
@@ -598,6 +659,7 @@ trunc(125.815,-3)=0.0
 trunc(123.345,4)=123.345
 trunc(123.345,-4)=0.0
 </code></pre>
+
             </div>
             <hr>
 
@@ -770,12 +832,14 @@ trunc(123.345,-4)=0.0
                 </a>
                 <div class="card-content article-content">
                     <div class="summary">窗口函数
+
 只能出现在select子句中
 目前在一个MaxCompute SQL语句中，最多可以使用5个窗口函数。
 窗口函数中不要嵌套使用窗口函数和聚合函数
 窗口函数不可以和同级别的聚合函数一起使用
 
-语法声明window_func() ov</div>
+语法声明
+window_func() </div>
                     <div class="publish-info">
                         <span class="publish-date">
                             <i class="fa fa-clock-o fa-fw icon-date"></i>2018-12-09
@@ -812,17 +876,18 @@ trunc(123.345,-4)=0.0
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="01-MaxCompute技术沙龙总结（MaxCompute，基于Serverless的高可靠大数据服务）">
+                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="33301-MaxCompute技术沙龙总结（MaxCompute，基于Serverless的高可靠大数据服务）">
                         
-                        <span class="card-title">01-MaxCompute技术沙龙总结（MaxCompute，基于Serverless的高可靠大数据服务）</span>
+                        <span class="card-title">33301-MaxCompute技术沙龙总结（MaxCompute，基于Serverless的高可靠大数据服务）</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary">沙龙主题：
+
 13:00-13:30 主题签到
 13:30-14:10 MaxCompute，基于Serverless的高可靠大数据服务 讲师：吴永明
 14:10-14:50 基于MaxCompute的媒体大数据开放平台建设 讲师：李金波
-1</div>
+</div>
                     <div class="publish-info">
                             <span class="publish-date">
                                 <i class="fa fa-clock-o fa-fw icon-date"></i>2018-12-07
