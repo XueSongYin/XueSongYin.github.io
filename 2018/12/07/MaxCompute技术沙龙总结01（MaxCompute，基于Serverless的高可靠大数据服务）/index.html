@@ -5,14 +5,12 @@
 
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="102-内建函数-数学函数, Hexo">
-    <meta name="description" content="数学函数ABSDouble abs(Double number)
-Bigint abs(Bigint number)
-Decimal abs(Decimal number)
-
-命令说明如下：
-该函数用于返回number的绝对值。
-参数说明：">
+    <meta name="keywords" content="01-MaxCompute技术沙龙总结（MaxCompute，基于Serverless的高可靠大数据服务）, Hexo">
+    <meta name="description" content="沙龙主题：
+13:00-13:30 主题签到
+13:30-14:10 MaxCompute，基于Serverless的高可靠大数据服务 讲师：吴永明
+14:10-14:50 基于MaxCompute的媒体大数据开放平台建设 讲师：李金波
+1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -20,7 +18,7 @@ Decimal abs(Decimal number)
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>102-内建函数-数学函数 | Hexo</title>
+    <title>01-MaxCompute技术沙龙总结（MaxCompute，基于Serverless的高可靠大数据服务） | Hexo</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -281,7 +279,7 @@ Decimal abs(Decimal number)
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        102-内建函数-数学函数
+                        01-MaxCompute技术沙龙总结（MaxCompute，基于Serverless的高可靠大数据服务）
                     </div>
                 </div>
             </div>
@@ -301,8 +299,8 @@ Decimal abs(Decimal number)
             
             <div class="article-tag">
                 
-                <a href="/tags/Maxcompute-内建函数/" target="_blank">
-                    <span class="chip bg-color">Maxcompute-内建函数</span>
+                <a href="/tags/Maxcompute-技术沙龙/" target="_blank">
+                    <span class="chip bg-color">Maxcompute-技术沙龙</span>
                 </a>
                 
             </div>
@@ -320,284 +318,100 @@ Decimal abs(Decimal number)
                 
 
                 <span class="post-date">
-                    <i class="fa fa-clock-o fa-fw"></i>2018-12-08
+                    <i class="fa fa-clock-o fa-fw"></i>2018-12-07
                 </span>
             </div>
         </div>
         <hr>
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="数学函数"><a href="#数学函数" class="headerlink" title="数学函数"></a>数学函数</h3><h4 id="ABS"><a href="#ABS" class="headerlink" title="ABS"></a>ABS</h4><pre><code>Double abs(Double number)
-Bigint abs(Bigint number)
-Decimal abs(Decimal number)
-
-</code></pre><p>命令说明如下：</p>
-<p>该函数用于返回number的绝对值。</p>
-<p>参数说明：</p>
-<p>number：当number为Double、Bigint或Decimal类型时。</p>
-<ul>
-<li>输入为Bigint，返回Bigint。</li>
-<li>输入为Double，返回Double类型。</li>
-<li>输入为Decimal，返回Decimal类型。<br>若输入为String类型，会隐式转换为Double类型后参与运算，其它类型抛异常。</li>
+                <h3 id="沙龙主题："><a href="#沙龙主题：" class="headerlink" title="沙龙主题："></a>沙龙主题：</h3><ul>
+<li>13:00-13:30 主题签到</li>
+<li>13:30-14:10 MaxCompute，基于Serverless的高可靠大数据服务 讲师：吴永明</li>
+<li>14:10-14:50 基于MaxCompute的媒体大数据开放平台建设 讲师：李金波</li>
+<li>14:50-15:30 基于MaxCompute打造轻盈的人人车移动端数据平台 讲师：吴水永</li>
+<li>15:30-16:10 MaxCompute在高德大数据上的应用 讲师：苗翌辰</li>
+<li>16:10-16:50 图（关系网络）数据分析及阿里应用 讲师：钱正平</li>
 </ul>
-<p>返回值：</p>
-<p>返回Double、Bigint或Decimal类型，取决于输入参数的类型。若输入为null，则返回null。</p>
-<p>示例如下：</p>
-<pre><code>abs(null)=null
-abs(-1)=1
-abs(-1.2)=1.2
-abs(&quot;-2&quot;)=2.0
-abs(122320837456298376592387456923748)=1.2232083745629837e32
-
-#完整的ABS函数在SQL中的使用
-select abs(id) from tbl1;
--- 取tbl1表内id字段的绝对值
-
-</code></pre><h4 id="ACOS"><a href="#ACOS" class="headerlink" title="ACOS"></a>ACOS</h4><pre><code>Double acos(Double number)
-Decimal acos(Decimal number)
-
-</code></pre><p>命令说明如下：</p>
-<p>该函数用于计算number的反余弦函数。</p>
-<p>参数说明：</p>
+<h3 id="基于Serverless的高可靠大数据服务"><a href="#基于Serverless的高可靠大数据服务" class="headerlink" title="基于Serverless的高可靠大数据服务"></a>基于Serverless的高可靠大数据服务</h3><h4 id="Maxcompute介绍"><a href="#Maxcompute介绍" class="headerlink" title="Maxcompute介绍"></a>Maxcompute介绍</h4><p><img src="https://raw.githubusercontent.com/XueSongYin/picture/master/MaxCompute/m_01.png" alt=""><br>通用分布式大数据处理平台<br>阿里巴巴99%存储+95%计算</p>
+<p>bigbench：maxcompute 是一般开源的2.5倍</p>
+<p>数量级别：EB级别 </p>
+<h4 id="系统架构"><a href="#系统架构" class="headerlink" title="系统架构"></a>系统架构</h4><blockquote>
+<p>数据应用层(客户端)=&gt;接入层（HTTP服务等） =&gt; 管理层（分布式源数据服务） =&gt; 存储计算层（飞天集群）</p>
+</blockquote>
+<h4 id="maxcompute-serverless"><a href="#maxcompute-serverless" class="headerlink" title="maxcompute serverless"></a>maxcompute serverless</h4><blockquote>
+<p>Serverless架构能够让开发者在构建应用的过程中无需关注计算资源的获取和运维，由平台来按需分配计算资源并保证应用执行的SLA，按照调用次数进行计费，有效的节省应用成本</p>
+</blockquote>
+<p><img src="https://raw.githubusercontent.com/XueSongYin/picture/master/MaxCompute/m_02.png" alt=""></p>
 <ul>
-<li>number：Double类型或Decimal类型，-1 ≤ number ≤1。若输入为String类型或Bigint类型，会隐式转换为Double类型后参与运算，其他类型抛异常。</li>
+<li>自动化</li>
+<li>数据化</li>
+<li>数据安全</li>
+<li>持续迭代和升级</li>
 </ul>
-<p>返回值：</p>
-<p>返回Double类型或Decimal类型，值域在0 ~ π之间。若number为null，则返回null。</p>
-<pre><code>acos(&quot;0.87&quot;)=0.5155940062460905
-acos(0)=1.5707963267948966
-</code></pre><h4 id="ASIN"><a href="#ASIN" class="headerlink" title="ASIN"></a>ASIN</h4><pre><code>Double asin(Double number)
-Decimal asin(Decimal number)
-
-</code></pre><p>命令说明如下：</p>
-<p>该函数用于计算number的反正弦函数。</p>
-<p>参数说明：</p>
+<h5 id="持续改进和发布"><a href="#持续改进和发布" class="headerlink" title="持续改进和发布"></a>持续改进和发布</h5><ul>
+<li>compiler&amp;optimzer（深度学习优化器）: Maxcompute Playback 工具</li>
+<li>Runtime:Maxcompute Flighting 工具</li>
+<li>Maxcompute灰度上线，细粒度回滚</li>
+</ul>
+<blockquote>
+<p>灰度发布：产品需求优先级，抽出核心需求，在满足用户基本要求的情况下快速上线，并通过限制流量、白名单等机制进行产品试用，以此收集用户的意见，从而萃取出用户潜在的需求，形成后续更有针对性的设计方案。</p>
+</blockquote>
+<h5 id="playback原理："><a href="#playback原理：" class="headerlink" title="playback原理："></a>playback原理：</h5><ul>
+<li>利用maxcompute本身灵活数据处理处理语言来构造分析任务</li>
+<li>利用maxcompute本身超大规模计算能力来并行分析海量用户任务</li>
+<li>利用maxcoute灵活的UDF支持且良好的隔离方案，在UDF中拉起待测的编译器进行编译，之后在进行详细的结果分析</li>
+</ul>
+<h5 id="Flighting工具："><a href="#Flighting工具：" class="headerlink" title="Flighting工具："></a>Flighting工具：</h5><p>反例-常规做法-测试集群验证：</p>
 <ul>
-<li>number：Double类型或Decimal类型，-1 ≤ number ≤1。若输入为String类型或Bigint类型，会隐式转换为Double类型后参与运算，其他类型抛异常。</li>
+<li>浪费巨大</li>
+<li>任务负载不足，无法构造对应场景</li>
+<li>脱敏：数据安全，低效</li>
 </ul>
-<p>返回值：</p>
-<p>返回Double类型或Decimal类型，值域在-π/2 ~π/2之间。若number为null，返回null。</p>
-<pre><code>asin(1)=1.5707963267948966
-asin(-1)=-1.5707963267948966
-</code></pre><h4 id="ATAN"><a href="#ATAN" class="headerlink" title="ATAN"></a>ATAN</h4><pre><code>Double atan(Double number)
-</code></pre><p>命令说明如下：</p>
-<p>该函数用于计算number的反正切函数。</p>
-<p>参数说明：</p>
-<ul>
-<li>number：Double类型，若输入为String类型或Bigint类型，会隐式转换到Double类型后参与运算，其他类型抛异常。</li>
+<p>测试集群就用线上的集群，但是会隔离出来<br><img src="https://raw.githubusercontent.com/XueSongYin/picture/master/MaxCompute/m_03.png" alt=""></p>
+<h5 id="灰度上线"><a href="#灰度上线" class="headerlink" title="灰度上线"></a>灰度上线</h5><ul>
+<li>按照任务的重要性进行分级</li>
+<li>细粒度发布并且支持瞬间回滚，控制风险到最小</li>
 </ul>
-<p>返回值：</p>
-<p>返回Double类型，值域在-π/2~π/2之间。若number为null，则返回null。</p>
-<pre><code>atan(1)=0.7853981633974483
-atan(-1)=-0.7853981633974483
-</code></pre><h4 id="CEIL"><a href="#CEIL" class="headerlink" title="CEIL"></a>CEIL</h4><pre><code>Bigint ceil(Double value)
-Bigint ceil(Decimal value)
-</code></pre><p>命令说明如下：</p>
-<p>向上取整，函数返回不小于输入值value的最小整数。</p>
-<p>参数说明：</p>
-<p>value：Double类型或Decimal类型，若输入为String类型或Bigint类型，会隐式转换到Double类型后参与运算，其他类型抛异常。</p>
-<p>返回值：</p>
-<p>返回Bigint类型。任意一个参数输入为null，则返回null。</p>
-<pre><code>ceil(1.1)=2
-ceil(-1.1)=-1
+<p><img src="https://raw.githubusercontent.com/XueSongYin/picture/master/MaxCompute/m_04.png" alt=""></p>
+<h5 id="持续开发验证迭代"><a href="#持续开发验证迭代" class="headerlink" title="持续开发验证迭代"></a>持续开发验证迭代</h5><p><img src="https://raw.githubusercontent.com/XueSongYin/picture/master/MaxCompute/m_05.png" alt=""></p>
+<h4 id="趋势"><a href="#趋势" class="headerlink" title="趋势"></a>趋势</h4><h5 id="智能化自动化"><a href="#智能化自动化" class="headerlink" title="智能化自动化"></a>智能化自动化</h5><p>目标：自动化运维<br>实例：OOM自动检测隔离 cost control</p>
+<p><img src="https://raw.githubusercontent.com/XueSongYin/picture/master/MaxCompute/m_06.png" alt=""></p>
+<p>用户查询：自动识别可优化查询并给出优化建议</p>
+<h4 id="低成本的奥妙"><a href="#低成本的奥妙" class="headerlink" title="低成本的奥妙"></a>低成本的奥妙</h4><p><img src="https://raw.githubusercontent.com/XueSongYin/picture/master/MaxCompute/m_07.png" alt=""></p>
+<h5 id="计算"><a href="#计算" class="headerlink" title="计算"></a>计算</h5><ul>
+<li>优化计算引擎</li>
+<li>降低作业大小</li>
+<li>降低作业资源占用率</li>
+<li>承载更多计算</li>
+</ul>
+<h5 id="存储"><a href="#存储" class="headerlink" title="存储"></a>存储</h5><ul>
+<li>压缩</li>
+<li>列式存储</li>
+<li>归档</li>
+<li>回收</li>
+</ul>
+<h5 id="调度"><a href="#调度" class="headerlink" title="调度"></a>调度</h5><ul>
+<li>集群内调度<br><img src="https://raw.githubusercontent.com/XueSongYin/picture/master/MaxCompute/m_08.png" alt=""></li>
+<li>跨集群全局调度</li>
+</ul>
+<p>二级配额组：多用户共享配额组降低单一用户大作业导致大量用户等待</p>
+<h4 id="数据安全"><a href="#数据安全" class="headerlink" title="数据安全"></a>数据安全</h4><h5 id="鉴权授权"><a href="#鉴权授权" class="headerlink" title="鉴权授权"></a>鉴权授权</h5><ul>
+<li>表</li>
+<li>列</li>
+<li>作业</li>
+</ul>
+<h5 id="数据多租户隔离"><a href="#数据多租户隔离" class="headerlink" title="数据多租户隔离"></a>数据多租户隔离</h5><ul>
+<li>物理隔离</li>
+<li>权限控制</li>
+</ul>
+<h5 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h5><ul>
+<li>E2E存储加密</li>
+<li>数据CRC校验</li>
+<li>脱敏</li>
+</ul>
+<p>注：循环冗余校验(Cyclic Redundancy Check, CRC)是一种根据网络数据包或电脑文件等数据产生简短固定位数校验码的一种散列函数，主要用来检测或校验数据传输或者保存后可能出现的错误。它是利用除法及余数的原理来作错误侦测的。</p>
 
-</code></pre><h4 id="CONV"><a href="#CONV" class="headerlink" title="CONV"></a>CONV</h4><pre><code>
-String conv(String input, Bigint from_base, Bigint to_base)
-
-</code></pre><p>命令说明如下：</p>
-<p>该函数为进制转换函数。</p>
-<p>参数说明：</p>
-<ul>
-<li>input：以String表示的要转换的整数值，接受Bigint、Double的隐式转换。</li>
-<li>from_base、to_base：以十进制表示的进制的值，可接受的的值为2、8、10和16。接受String及Double的隐式转换。</li>
-</ul>
-<p>返回值：</p>
-<p>返回String类型。任意一个参数输入为null，返回null。转换过程以64位精度工作，溢出时报异常。输入如果是负值，即以（-）开头，报异常。如果输入的是小数，则会转为整数值后进行进制转换，小数部分会被舍弃。</p>
-<pre><code>conv(&#39;1100&#39;, 2, 10)=&#39;12&#39;
-conv(&#39;1100&#39;, 2, 16)=&#39;c&#39;
-conv(&#39;ab&#39;, 16, 10)=&#39;171&#39;
-conv(&#39;ab&#39;, 16, 16)=&#39;ab&#39;
-
-</code></pre><h4 id="COS"><a href="#COS" class="headerlink" title="COS"></a>COS</h4><pre><code>Double cos(Double number)
-Decimal cos(Decimal number)
-</code></pre><p>命令说明如下：</p>
-<p>该函数用于计算number的余弦函数，输入为弧度值。</p>
-<p>参数说明：</p>
-<ul>
-<li>number：Double类型或Decimal类型。若输入为String类型或Bigint类型，会隐式转换到Double类型后参与运算，其他类型抛异常。</li>
-</ul>
-<p>返回值：</p>
-<p>返回Double类型或Decimal类型。若number为null，则返回null。</p>
-<pre><code>cos(3.1415926/2)=2.6794896585028633e-8
-cos(3.1415926)=-0.9999999999999986
-</code></pre><h4 id="COSH"><a href="#COSH" class="headerlink" title="COSH"></a>COSH</h4><pre><code>Double cosh(Double number)
-Decimal cosh(Decimal number)
-</code></pre><p>命令说明如下：</p>
-<p>该函数用于计算number的双曲余弦函数。</p>
-<p>参数说明：</p>
-<p>number：Double类型或Decimal类型。若输入为String类型或Bigint类型，会隐式转换为Double类型后，参与运算，其他类型抛异常。</p>
-<p>返回值：</p>
-<p>返回Double类型或Decimal类型。若number为null，返回null。</p>
-<h4 id="COT"><a href="#COT" class="headerlink" title="COT"></a>COT</h4><pre><code>Double cot(Double number)
-Decimal cot(Decimal number)
-
-</code></pre><p>命令说明如下：</p>
-<p>该函数用于计算number的余切函数，输入为弧度值。</p>
-<p>参数说明：</p>
-<p>number：Double类型或Decimal类型。若输入为String类型或Bigint类型，会隐式转换为Double类型后参与运算，其他类型抛异常。</p>
-<p>返回值：</p>
-<p>返回Double类型或Decimal类型。若number为null，则返回null。</p>
-<h4 id="EXP"><a href="#EXP" class="headerlink" title="EXP"></a>EXP</h4><pre><code>Double exp(Double number)
-Decimal exp(Decimal number)
-</code></pre><p>命令说明如下：</p>
-<p>该函数用于计算number的指数函数。</p>
-<p>返回值：</p>
-<p>返回number的指数值。</p>
-<p>参数说明：</p>
-<p>number：Double类型或Decimal类型。若输入为String类型或Bigint类型，会隐式转换为Double类型后参与运算，其他类型抛异常。</p>
-<p>返回值：</p>
-<p>返回Double类型或Decimal类型。若number为null，则返回null。</p>
-<h4 id="FLOOR"><a href="#FLOOR" class="headerlink" title="FLOOR"></a>FLOOR</h4><pre><code>Bigint floor(Double number)
-Bigint floor(Decimal number)
-</code></pre><p>命令说明如下：</p>
-<p>向下取整，函数返回不大于number的最大整数值。</p>
-<p>参数说明：</p>
-<p>number：Double类型或Decimal类型，若输入为String类型或Bigint类型，会隐式转换为Double类型后参与运算，其他类型抛异常。</p>
-<p>返回值：</p>
-<p>返回Bigint类型。若number为null，则返回null。</p>
-<pre><code>floor(1.2)=1
-floor(1.9)=1
-floor(0.1)=0
-floor(-1.2)=-2
-floor(-0.1)=-1
-floor(0.0)=0
-floor(-0.0)=0
-
-</code></pre><h4 id="LN"><a href="#LN" class="headerlink" title="LN"></a>LN</h4><pre><code>Double ln(Double number)
-Decimal ln(Decimal number)
-
-</code></pre><p>命令说明如下：</p>
-<p>该函数用于返回number的自然对数。</p>
-<p>参数说明：</p>
-<p>number：Double类型或Decimal类型。</p>
-<ul>
-<li>若输入为String类型或Bigint类型，会隐式转换为Double类型后参与运算，其他类型抛异常。</li>
-<li>若number为null，则返回null。若number为负数或零，则执行报错。<br>返回值：</li>
-</ul>
-<p>返回Double类型或Decimal类型。</p>
-<h4 id="LOG"><a href="#LOG" class="headerlink" title="LOG"></a>LOG</h4><pre><code>Double log(Double base, Double x)
-Decimal log(Decimal base, Decimal x)
-
-</code></pre><p>命令说明如下：</p>
-<p>该函数用于返回以base为底的x的对数。</p>
-<p>参数说明：</p>
-<ul>
-<li>base：Double类型或Decimal类型，若输入为String类型或Bigint类型，会隐式转换为Double类型后参与运算，其他类型抛异常。</li>
-<li>x：Double类型或Decimal类型，若输入为String类型或Bigint类型，会隐式转换为Double类型后参与运算，其他类型抛异常。</li>
-</ul>
-<p>返回值：</p>
-<p>返回Double类型或Decimal类型的对数值。</p>
-<ul>
-<li>若base和x中存在null，则返回null。</li>
-<li>若base和x中某一个值为负数或 0，会引发异常。</li>
-<li>若base为1（会引发一个除零行为），也会引发异常。</li>
-</ul>
-<h4 id="POW"><a href="#POW" class="headerlink" title="POW"></a>POW</h4><pre><code>Double pow(Double x, Double y)
-Decimal pow(Decimal x, Decimal y)
-</code></pre><p>命令说明如下：</p>
-<p>该函数用于返回x的y次方，即x^y。</p>
-<p>参数说明：</p>
-<ul>
-<li>X：Double类型或Decimal类型，若输入为String类型或Bigint类型，会隐式转换为Double类型后参与运算，其他类型抛异常。</li>
-<li>Y：Double类型或Decimal类型，若输入为String类型或Bigint类型，会隐式转换为Double类型后参与运算，其他类型抛异常。<br>返回值：</li>
-</ul>
-<p>返回Double类型或Decimal类型。若x或y为null，则返回null。</p>
-<h4 id="RAND"><a href="#RAND" class="headerlink" title="RAND"></a>RAND</h4><pre><code>Double rand(Bigint seed)
-
-</code></pre><p>命令说明如下：</p>
-<p>该函数以seed为种子，返回Double类型的随机数，返回值区间是的0～1。</p>
-<p>参数说明：</p>
-<p>seed：可选参数，Bigint类型，随机数种子，决定随机数序列的起始值。</p>
-<p>返回值：</p>
-<p>返回Double类型。</p>
-<p>示例如下：</p>
-<pre><code>select rand() from dual;
-select rand(1) from dual;
-</code></pre><h4 id="ROUND"><a href="#ROUND" class="headerlink" title="ROUND"></a>ROUND</h4><pre><code>Double round(Double number, [Bigint Decimal_places])
-Decimal round(Decimal number, [Bigint Decimal_places])
-
-</code></pre><p>命令说明如下：</p>
-<p>该函数四舍五入到指定小数点位置。</p>
-<p>参数说明：</p>
-<ul>
-<li>number：Double类型或Decimal类型。若输入为String类型或Bigint类型，会隐式转换为Double类型后参与运算，其他类型抛异常。</li>
-<li>Decimal_place：Bigint类型常量，四舍五入计算到小数点后的位置，其他类型参数会引发异常。如果省略表示四舍五入到个位数，默认值为0。<br>返回值：</li>
-</ul>
-<p>返回Double类型或Decimal类型。若number或Decimal_places为null，则返回null。</p>
-<pre><code>round(125.315)=125.0
-round(125.315, 0)=125.0
-round(125.315, 1)=125.3
-round(125.315, 2)=125.32
-round(125.315, 3)=125.315
-round(-125.315, 2)=-125.32
-round(123.345, -2)=100.0
-round(null)=null
-round(123.345, 4)=123.345
-round(123.345, -4)=0.0
-</code></pre><h4 id="SIN"><a href="#SIN" class="headerlink" title="SIN"></a>SIN</h4><pre><code>Double sin(Double number)
-Decimal sin(Decimal number)
-</code></pre><p>命令说明如下：</p>
-<p>该函数用于计算number的正弦函数，输入为弧度值。</p>
-<p>参数说明：</p>
-<p>number：Double类型或Decimal类型。若输入为String类型或Bigint类型，会隐式转换为Double类型后参与运算，其他类型抛异常。</p>
-<p>返回值：</p>
-<p>返回Double类型或Decimal类型。若number为null，则返回null。</p>
-<h4 id="SINH"><a href="#SINH" class="headerlink" title="SINH"></a>SINH</h4><pre><code>Double sinh(Double number)
-Decimal sinh(Decimal number)
-</code></pre><p>命令说明如下：</p>
-<p>该函数用于计算number的双曲正弦函数。</p>
-<p>参数说明：</p>
-<p>number：Double类型或Decimal类型。若输入为String类型或Bigint类型，会隐式转换为Double类型后参与运算，其他类型抛异常。</p>
-<p>返回值：</p>
-<p>返回Double类型或Decimal类型。若number为null，则返回null。</p>
-<h4 id="SQRT"><a href="#SQRT" class="headerlink" title="SQRT"></a>SQRT</h4><pre><code>Double sqrt(Double number)
-Decimal sqrt(Decimal number)
-</code></pre><p>命令说明如下：</p>
-<p>该函数用于计算number的平方根。</p>
-<p>参数说明：</p>
-<p>number：Double类型或Decimal类型，必须大于0，小于0时引发异常。若输入为String类型或Bigint类型，会隐式转换为Double类型后参与运算，其他类型抛异常。</p>
-<p>返回值：</p>
-<p>返回Double类型或Decimal类型。若number为null，则返回null。</p>
-<h4 id="TANH"><a href="#TANH" class="headerlink" title="TANH"></a>TANH</h4><pre><code>Double tanh(Double number)
-Decimal tanh(Decimal number)
-</code></pre><p>命令说明如下：</p>
-<p>该函数用于计算number的双曲正切函数。</p>
-<p>参数说明：</p>
-<p>number：Double类型或Decimal类型。若输入为String类型或Bigint类型，会隐式转换为Double类型后参与运算，其他类型抛异常。</p>
-<p>返回值：</p>
-<p>返回Double类型或Decimal类型。若number为null，则返回null。</p>
-<h4 id="TRUNC"><a href="#TRUNC" class="headerlink" title="TRUNC"></a>TRUNC</h4><pre><code>Double trunc(Double number[, Bigint Decimal_places])
-Decimal trunc(Decimal number[, Bigint Decimal_places])
-</code></pre><p>命令说明如下：</p>
-<p>该函数用于将输入值number截取到指定小数点位置。</p>
-<p>参数说明：</p>
-<ul>
-<li>number：Double类型或Decimal类型，若输入为String类型或Bigint类型，会隐式转换为Double类型后参与运算，其他类型抛异常。</li>
-<li>Decimal_places：Bigint类型常量，要截取到的小数点位置，其他类型参数会隐式转为Bigint，省略此参数时默认到截取到个位数。<br>返回值：</li>
-</ul>
-<p>返回值类型为Double或Decimal类型。若number或Decimal_places为null，则返回null。</p>
-<pre><code>trunc(125.815)=125.0
-trunc(125.815,0)=125.0
-trunc(125.815,1)=125.80000000000001
-trunc(125.815,2)=125.81
-trunc(125.815,3)=125.815
-trunc(-125.815,2)=-125.81
-trunc(125.815,-1)=120.0
-trunc(125.815,-2)=100.0
-trunc(125.815,-3)=0.0
-trunc(123.345,4)=123.345
-trunc(123.345,-4)=0.0
-</code></pre>
             </div>
             <hr>
 
@@ -735,7 +549,7 @@ trunc(123.345,-4)=0.0
                     <span class="reprint-tip">Reprint please specify: </span>
                     <a href="https://xuesongyin.github.io" class="b-link-green">Hexo</a>
                     <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
-                    <a href="/2018/12/08/02内建函数-数学函数/" class="b-link-green">102-内建函数-数学函数</a>
+                    <a href="/2018/12/07/MaxCompute技术沙龙总结01（MaxCompute，基于Serverless的高可靠大数据服务）/" class="b-link-green">01-MaxCompute技术沙龙总结（MaxCompute，基于Serverless的高可靠大数据服务）</a>
                 </p>
             </div>
         </div>
@@ -759,26 +573,26 @@ trunc(123.345,-4)=0.0
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">Previous</div>
             <div class="card">
-                <a href="/2018/12/09/03内建函数-窗口函数/">
+                <a href="/2018/12/08/02内建函数-数学函数/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="103-内建函数-窗口函数">
+                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="102-内建函数-数学函数">
                         
-                        <span class="card-title">103-内建函数-窗口函数</span>
+                        <span class="card-title">102-内建函数-数学函数</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">窗口函数
-只能出现在select子句中
-目前在一个MaxCompute SQL语句中，最多可以使用5个窗口函数。
-窗口函数中不要嵌套使用窗口函数和聚合函数
-窗口函数不可以和同级别的聚合函数一起使用
+                    <div class="summary">数学函数ABSDouble abs(Double number)
+Bigint abs(Bigint number)
+Decimal abs(Decimal number)
 
-语法声明window_func() ov</div>
+命令说明如下：
+该函数用于返回number的绝对值。
+参数说明：</div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2018-12-09
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2018-12-08
                         </span>
                         <span class="publish-author">
                             
@@ -808,24 +622,24 @@ trunc(123.345,-4)=0.0
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">Next</div>
             <div class="card">
-                <a href="/2018/12/07/MaxCompute技术沙龙总结01（MaxCompute，基于Serverless的高可靠大数据服务）/">
+                <a href="/2018/09/07/01内建函数-日期函数/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="01-MaxCompute技术沙龙总结（MaxCompute，基于Serverless的高可靠大数据服务）">
+                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="101-内建函数-日期函数">
                         
-                        <span class="card-title">01-MaxCompute技术沙龙总结（MaxCompute，基于Serverless的高可靠大数据服务）</span>
+                        <span class="card-title">101-内建函数-日期函数</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">沙龙主题：
-13:00-13:30 主题签到
-13:30-14:10 MaxCompute，基于Serverless的高可靠大数据服务 讲师：吴永明
-14:10-14:50 基于MaxCompute的媒体大数据开放平台建设 讲师：李金波
-1</div>
+                    <div class="summary">内建函数对照-与mysql 以及oracle
+日期函数DATEADDdatetime dateadd(datetime date, bigint delta, string datepart)
+
+
+date：Datetime类型，日期值。若</div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-12-07
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-09-07
                             </span>
                         <span class="publish-author">
                             
@@ -842,8 +656,8 @@ trunc(123.345,-4)=0.0
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Maxcompute-技术沙龙/" target="_blank">
-                        <span class="chip bg-color">Maxcompute-技术沙龙</span>
+                    <a href="/tags/Maxcompute-内建函数/" target="_blank">
+                        <span class="chip bg-color">Maxcompute-内建函数</span>
                     </a>
                     
                 </div>
