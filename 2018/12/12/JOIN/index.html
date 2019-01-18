@@ -6,9 +6,8 @@
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
     <meta name="keywords" content="201-JOIN, Hexo">
-    <meta name="description" content="left outer join
-左连接，会从左表（shop）中返回所有的记录，即使在右表（sale_detail）中没有匹配的行
-select a.shop_name as ashop, b.shop_name as bshop from ">
+    <meta name="description" content="left outer join左连接，会从左表（shop）中返回所有的记录，即使在右表（sale_detail）中没有匹配的行
+select a.shop_name as ashop, b.shop_name as bshop from s">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -323,45 +322,33 @@ select a.shop_name as ashop, b.shop_name as bshop from ">
         <hr>
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3>left outer join</h3>
-<p>左连接，会从左表（shop）中返回所有的记录，即使在右表（sale_detail）中没有匹配的行</p>
+                <h3 id="left-outer-join"><a href="#left-outer-join" class="headerlink" title="left outer join"></a>left outer join</h3><p>左连接，会从左表（shop）中返回所有的记录，即使在右表（sale_detail）中没有匹配的行</p>
 <pre><code>select a.shop_name as ashop, b.shop_name as bshop from shop a
         left outer join sale_detail b on a.shop_name=b.shop_name;
     -- 由于表shop及sale_detail中都有shop_name列，因此需要在select子句中使用别名进行区分。
 
-</code></pre>
-<h3>right outer join</h3>
-<p>右连接，返回右表中的所有记录，即使在左表中没有记录与它匹配。</p>
+</code></pre><h3 id="right-outer-join"><a href="#right-outer-join" class="headerlink" title="right outer join"></a>right outer join</h3><p>右连接，返回右表中的所有记录，即使在左表中没有记录与它匹配。</p>
 <pre><code>select a.shop_name as ashop, b.shop_name as bshop from shop a
         right outer join sale_detail b on a.shop_name=b.shop_name;
-</code></pre>
-<h3>full outer join</h3>
-<p>全连接，返回左右表中的所有记录。</p>
+</code></pre><h3 id="full-outer-join"><a href="#full-outer-join" class="headerlink" title="full outer join"></a>full outer join</h3><p>全连接，返回左右表中的所有记录。</p>
 <pre><code>select a.shop_name as ashop, b.shop_name as bshop from shop a
         full outer join sale_detail b on a.shop_name=b.shop_name;
-</code></pre>
-<h3>inner join</h3>
-<p>在表中存在至少一个匹配时，inner join返回行。关键字inner可省略。</p>
+</code></pre><h3 id="inner-join"><a href="#inner-join" class="headerlink" title="inner join"></a>inner join</h3><p>在表中存在至少一个匹配时，inner join返回行。关键字inner可省略。</p>
 <pre><code>select a.shop_name from shop a inner join sale_detail b on a.shop_name=b.shop_name;
 select a.shop_name from shop a join sale_detail b on a.shop_name=b.shop_name;
-</code></pre>
-<h3>不等值连接禁止</h3>
-<p>连接条件，只允许and连接的等值条件。只有在MAPJOIN中，可以使用不等值连接或者使用or连接多个条件。</p>
+</code></pre><h3 id="不等值连接禁止"><a href="#不等值连接禁止" class="headerlink" title="不等值连接禁止"></a>不等值连接禁止</h3><p>连接条件，只允许and连接的等值条件。只有在MAPJOIN中，可以使用不等值连接或者使用or连接多个条件。</p>
 <pre><code>select a.* from shop a full outer join sale_detail b on a.shop_name=b.shop_name
         full outer join sale_detail c on a.shop_name=c.shop_name;
     -- 支持多路join链接示例
 select a.* from shop a join sale_detail b on a.shop_name != b.shop_name;
     -- 不支持不等值Join链接条件，报错返回。
-    
-</code></pre>
-<h3>IMPLICIT JOIN</h3>
-<p>IMPLICIT JOIN，MaxCompute支持如下Join方式。</p>
+
+</code></pre><h3 id="IMPLICIT-JOIN"><a href="#IMPLICIT-JOIN" class="headerlink" title="IMPLICIT JOIN"></a>IMPLICIT JOIN</h3><p>IMPLICIT JOIN，MaxCompute支持如下Join方式。</p>
 <pre><code>SELECT * FROM table1, table2 WHERE table1.id = table2.id;
 --执行的效果相当于
 SELECT * FROM table1 JOIN table2 ON table1.id = table2.id;s
 
 </code></pre>
-
             </div>
             <hr>
 
@@ -533,9 +520,8 @@ SELECT * FROM table1 JOIN table2 ON table1.id = table2.id;s
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">SEMI JOIN
-MaxCompute支持SEMI JOIN（半连接）。SEMI JOIN中，右表只用来过滤左表的数据而不出现在结果集中。支持LEFT SEMI JOIN和LEFT ANTI JOIN两种语法。
-LEFT SEMI JOI</div>
+                    <div class="summary">SEMI JOINMaxCompute支持SEMI JOIN（半连接）。SEMI JOIN中，右表只用来过滤左表的数据而不出现在结果集中。支持LEFT SEMI JOIN和LEFT ANTI JOIN两种语法。
+LEFT SEMI JOIN</div>
                     <div class="publish-info">
                         <span class="publish-date">
                             <i class="fa fa-clock-o fa-fw icon-date"></i>2018-12-13
@@ -578,15 +564,12 @@ LEFT SEMI JOI</div>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">字符串函数
-CHAR_MATCHCOUNT
-bigint char_matchcount(string str1, string str2)
-
+                    <div class="summary">字符串函数CHAR_MATCHCOUNTbigint char_matchcount(string str1, string str2)
 命令说明如下：
 该函数用于计算str1中有多少个字符出现在str2中。
 参数说明：
 
-str1，</div>
+str1，str</div>
                     <div class="publish-info">
                             <span class="publish-date">
                                 <i class="fa fa-clock-o fa-fw icon-date"></i>2018-12-11

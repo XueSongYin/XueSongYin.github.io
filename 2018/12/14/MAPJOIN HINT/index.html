@@ -6,10 +6,8 @@
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
     <meta name="keywords" content="203-MAPJOIN HINT数, Hexo">
-    <meta name="description" content="MAPJOIN HINT
-当一个大表和一个或多个小表做Join时，可以使用MapJoin，性能比普通的Join要快很多。
-原理
-MapJoin 的基本原理为：在小数据量情况下，SQL会将您指定的小表全部加载到执行Join操作的程序的内存中，">
+    <meta name="description" content="MAPJOIN HINT当一个大表和一个或多个小表做Join时，可以使用MapJoin，性能比普通的Join要快很多。
+原理MapJoin 的基本原理为：在小数据量情况下，SQL会将您指定的小表全部加载到执行Join操作的程序的内存中，从而">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -324,12 +322,9 @@ MapJoin 的基本原理为：在小数据量情况下，SQL会将您指定的小
         <hr>
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3>MAPJOIN HINT</h3>
-<p>当一个大表和一个或多个小表做Join时，可以使用MapJoin，性能比普通的Join要快很多。</p>
-<h3>原理</h3>
-<p>MapJoin 的基本原理为：在小数据量情况下，SQL会将您指定的小表全部加载到执行Join操作的程序的内存中，从而加快Join的执行速度。</p>
-<h3>注意</h3>
-<ul>
+                <h3 id="MAPJOIN-HINT"><a href="#MAPJOIN-HINT" class="headerlink" title="MAPJOIN HINT"></a>MAPJOIN HINT</h3><p>当一个大表和一个或多个小表做Join时，可以使用MapJoin，性能比普通的Join要快很多。</p>
+<h3 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h3><p>MapJoin 的基本原理为：在小数据量情况下，SQL会将您指定的小表全部加载到执行Join操作的程序的内存中，从而加快Join的执行速度。</p>
+<h3 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h3><ul>
 <li>left outer join的左表必须是大表。</li>
 <li>right outer join的右表必须是大表。</li>
 <li>inner join左表或右表均可以作为大表。</li>
@@ -341,18 +336,15 @@ MapJoin 的基本原理为：在小数据量情况下，SQL会将您指定的小
 <li>如果使用MapJoin，则所有小表占用的内存总和不得超过512MB。由于MaxCompute是压缩存储，因此小表在被加载到内存后，数据大小会急剧膨胀。此处的512MB限制是加载到内存后的空间大小。</li>
 <li>多个表Join时，最左边的两个表不能同时是MapJoin的表。</li>
 <li>您可以通过mapjoin on 1 = 1来实现笛卡尔乘积，但请注意可能会带来计算量的膨胀。</li>
-<li></li>
+<li>示例如下：</li>
 </ul>
-<p>示例如下：</p>
 <pre><code>select /* + mapjoin(a) */
         a.shop_name,
         b.customer_id,
         b.total_price
     from shop a join sale_detail b
     on a.shop_name = b.shop_name;
-</code></pre>
-<h3>不等操作</h3>
-<p>MaxCompute SQL不支持在普通Join的on条件中使用不等值表达式，or逻辑等复杂的Join条件，但是在MapJoin中可以进行如上操作。</p>
+</code></pre><h3 id="不等操作"><a href="#不等操作" class="headerlink" title="不等操作"></a>不等操作</h3><p>MaxCompute SQL不支持在普通Join的on条件中使用不等值表达式，or逻辑等复杂的Join条件，但是在MapJoin中可以进行如上操作。</p>
 <pre><code>select /*+ mapjoin(a) */
         a.total_price,
         b.total_price
@@ -360,7 +352,6 @@ MapJoin 的基本原理为：在小数据量情况下，SQL会将您指定的小
     on a.total_price &lt; b.total_price or a.total_price + b.total_price &lt; 500;
 
 </code></pre>
-
             </div>
             <hr>
 
@@ -532,10 +523,8 @@ MapJoin 的基本原理为：在小数据量情况下，SQL会将您指定的小
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">MAPJOIN HINT
-当一个大表和一个或多个小表做Join时，可以使用MapJoin，性能比普通的Join要快很多。
-原理
-MapJoin 的基本原理为：在小数据量情况下，SQL会将您指定的小表全部加载到执行Join操作的程序的内存中，</div>
+                    <div class="summary">MAPJOIN HINT当一个大表和一个或多个小表做Join时，可以使用MapJoin，性能比普通的Join要快很多。
+原理MapJoin 的基本原理为：在小数据量情况下，SQL会将您指定的小表全部加载到执行Join操作的程序的内存中，从而</div>
                     <div class="publish-info">
                             <span class="publish-date">
                                 <i class="fa fa-clock-o fa-fw icon-date"></i>2018-12-14
@@ -579,9 +568,8 @@ MapJoin 的基本原理为：在小数据量情况下，SQL会将您指定的小
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">SEMI JOIN
-MaxCompute支持SEMI JOIN（半连接）。SEMI JOIN中，右表只用来过滤左表的数据而不出现在结果集中。支持LEFT SEMI JOIN和LEFT ANTI JOIN两种语法。
-LEFT SEMI JOI</div>
+                    <div class="summary">SEMI JOINMaxCompute支持SEMI JOIN（半连接）。SEMI JOIN中，右表只用来过滤左表的数据而不出现在结果集中。支持LEFT SEMI JOIN和LEFT ANTI JOIN两种语法。
+LEFT SEMI JOIN</div>
                     <div class="publish-info">
                             <span class="publish-date">
                                 <i class="fa fa-clock-o fa-fw icon-date"></i>2018-12-13

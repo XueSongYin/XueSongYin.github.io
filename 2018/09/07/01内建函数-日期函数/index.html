@@ -7,13 +7,10 @@
     <meta charset="utf-8">
     <meta name="keywords" content="101-内建函数-日期函数, Hexo">
     <meta name="description" content="内建函数对照-与mysql 以及oracle
-日期函数
-DATEADD
-datetime dateadd(datetime date, bigint delta, string datepart)
+日期函数DATEADDdatetime dateadd(datetime date, bigint delta, string datepart)
 
 
-
-date：Datetime类型，日期">
+date：Datetime类型，日期值。若">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -329,44 +326,38 @@ date：Datetime类型，日期">
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <p><a href="https://helpcdn.aliyun.com/document_detail/96342.html?spm=a2c4g.11186623.6.642.5ced5c813MwBoQ" target="_blank" rel="noopener">内建函数对照-与mysql 以及oracle</a></p>
-<h3>日期函数</h3>
-<h4>DATEADD</h4>
-<pre><code>datetime dateadd(datetime date, bigint delta, string datepart)
+<h3 id="日期函数"><a href="#日期函数" class="headerlink" title="日期函数"></a>日期函数</h3><h4 id="DATEADD"><a href="#DATEADD" class="headerlink" title="DATEADD"></a>DATEADD</h4><pre><code>datetime dateadd(datetime date, bigint delta, string datepart)
 
-</code></pre>
-<ul>
+</code></pre><ul>
 <li>date：Datetime类型，日期值。若输入为String类型会隐式转换为Datetime类型后参与运算，其它类型抛异常。</li>
 <li>delta：Bigint类型，修改幅度。若输入为String类型或Double型会隐式转换到Bigint类型后参与运算，其他类型会引发异常。若delta大于0，则增，否则减。</li>
-<li>datepart：String类型常量。此字段的取值遵循String与Datetime类型转换的约定，即yyyy表示年，mm表示月。</li>
-</ul>
-<blockquote>
+<li>datepart：String类型常量。此字段的取值遵循String与Datetime类型转换的约定，即yyyy表示年，mm表示月。<blockquote>
 <p>关于类型转换的规则，请参见String类型与Datetime类型之间的转换。此外也支持扩展的日期格式：年-year，月-month或mon，日-day，小时-hour。非常量、不支持的格式或其它类型会抛异常。</p>
 </blockquote>
+</li>
+</ul>
 <pre><code>若trans_date = 2005-02-28 00:00:00：
-dateadd(trans_date, 1, 'dd') = 2005-03-01 00:00:00
+dateadd(trans_date, 1, &#39;dd&#39;) = 2005-03-01 00:00:00
 -- 加一天，结果超出当年2月份的最后一天，实际值为下个月的第一天
-dateadd(trans_date, -1, 'dd') = 2005-02-27 00:00:00
+dateadd(trans_date, -1, &#39;dd&#39;) = 2005-02-27 00:00:00
 -- 减一天
-dateadd(trans_date, 20, 'mm') = 2006-10-28 00:00:00
+dateadd(trans_date, 20, &#39;mm&#39;) = 2006-10-28 00:00:00
 -- 加20个月，月份溢出，年份加1
-若trans_date = 2005-02-28 00:00:00, dateadd(transdate, 1, 'mm') = 2005-03-28 00:00:00
-若trans_date = 2005-01-29 00:00:00, dateadd(transdate, 1, 'mm') = 2005-02-28 00:00:00
+若trans_date = 2005-02-28 00:00:00, dateadd(transdate, 1, &#39;mm&#39;) = 2005-03-28 00:00:00
+若trans_date = 2005-01-29 00:00:00, dateadd(transdate, 1, &#39;mm&#39;) = 2005-02-28 00:00:00
 -- 2005年2月没有29日，日期截取至当月最后一天
-若trans_date = 2005-03-30 00:00:00, dateadd(transdate, -1, 'mm') = 2005-02-28 00:00:00
+若trans_date = 2005-03-30 00:00:00, dateadd(transdate, -1, &#39;mm&#39;) = 2005-02-28 00:00:00
 
-</code></pre>
-<p>示例：将string类转换为datetime类型</p>
+</code></pre><p>示例：将string类转换为datetime类型</p>
 <blockquote>
 <p>错误示例：select dateadd(2005-03-30 00:00:00, -1, ‘mm’) from tbl1;</p>
 </blockquote>
 <blockquote>
 <p>正确示例：select dateadd(cast(“2005-03-30 00:00:00” as datetime), -1, ‘mm’) from tbl1;</p>
 </blockquote>
-<h4>DATEDIFF</h4>
-<pre><code>bigint datediff(datetime date1, datetime date2, string datepart)
+<h4 id="DATEDIFF"><a href="#DATEDIFF" class="headerlink" title="DATEDIFF"></a>DATEDIFF</h4><pre><code>bigint datediff(datetime date1, datetime date2, string datepart)
 
-</code></pre>
-<p>命令说明如下：</p>
+</code></pre><p>命令说明如下：</p>
 <p>计算两个时间date1、date2在指定时间单位datepart的差值。</p>
 <p>参数说明：</p>
 <ul>
@@ -377,40 +368,33 @@ dateadd(trans_date, 20, 'mm') = 2006-10-28 00:00:00
 <p>返回Bigint类型。任一输入参数是NULL，返回NULL。如果date1小于date2，返回值可以为负数。</p>
 <p>示例如下：</p>
 <pre><code>若start = 2005-12-31 23:59:59，end = 2006-01-01 00:00:00:
-    datediff(end, start, 'dd') = 1
-    datediff(end, start, 'mm') = 1
-    datediff(end, start, 'yyyy') = 1
-    datediff(end, start, 'hh') = 1
-    datediff(end, start, 'mi') = 1
-    datediff(end, start, 'ss') = 1
-    datediff('2013-05-31 13:00:00', '2013-05-31 12:30:00', 'ss') = 1800
-    datediff('2013-05-31 13:00:00', '2013-05-31 12:30:00', 'mi') = 30
+    datediff(end, start, &#39;dd&#39;) = 1
+    datediff(end, start, &#39;mm&#39;) = 1
+    datediff(end, start, &#39;yyyy&#39;) = 1
+    datediff(end, start, &#39;hh&#39;) = 1
+    datediff(end, start, &#39;mi&#39;) = 1
+    datediff(end, start, &#39;ss&#39;) = 1
+    datediff(&#39;2013-05-31 13:00:00&#39;, &#39;2013-05-31 12:30:00&#39;, &#39;ss&#39;) = 1800
+    datediff(&#39;2013-05-31 13:00:00&#39;, &#39;2013-05-31 12:30:00&#39;, &#39;mi&#39;) = 30
 若start = 2018-06-04 19:33:23.234，end = 2018-06-04 19:33:23.250 含毫秒的日期不属于标准Datetime式样，不能直接隐式转换，此处需进行显示转换：
- datediff(to_date('2018-06-04 19:33:23.250', 'yyyy-MM-dd hh:mi:ss.ff3'),to_date('2018-06-04 19:33:23.234', 'yyyy-MM-dd hh:mi:ss.ff3') , 'ff3') = 16
-</code></pre>
-<h4>DATEPART</h4>
-<pre><code>bigint datepart(datetime date, string datepart)
+ datediff(to_date(&#39;2018-06-04 19:33:23.250&#39;, &#39;yyyy-MM-dd hh:mi:ss.ff3&#39;),to_date(&#39;2018-06-04 19:33:23.234&#39;, &#39;yyyy-MM-dd hh:mi:ss.ff3&#39;) , &#39;ff3&#39;) = 16
+</code></pre><h4 id="DATEPART"><a href="#DATEPART" class="headerlink" title="DATEPART"></a>DATEPART</h4><pre><code>bigint datepart(datetime date, string datepart)
 
-</code></pre>
-<p>命令说明如下：</p>
+</code></pre><p>命令说明如下：</p>
 <p>提取日期date中指定的时间单位datepart的值。</p>
 <p>参数说明：</p>
 <p>返回值：</p>
 <ul>
-<li>date：Datetime类型，若输入为String类型会隐式转换为Datetime类型后参与运算，其它类型抛异常。<br>
-datepart：String类型常量，支持扩展的日期格式。* 若datepart不符合指定格式或者其它类型则会发生异常。</li>
+<li>date：Datetime类型，若输入为String类型会隐式转换为Datetime类型后参与运算，其它类型抛异常。<br>datepart：String类型常量，支持扩展的日期格式。* 若datepart不符合指定格式或者其它类型则会发生异常。</li>
 </ul>
 <p>返回Bigint类型。若任一输入参数为NULL，返回NULL。</p>
 <p>示例如下：</p>
-<pre><code>datepart('2013-06-08 01:10:00', 'yyyy')  =  2013
-datepart('2013-06-08 01:10:00', 'mm')  =  6
+<pre><code>datepart(&#39;2013-06-08 01:10:00&#39;, &#39;yyyy&#39;)  =  2013
+datepart(&#39;2013-06-08 01:10:00&#39;, &#39;mm&#39;)  =  6
 
-</code></pre>
-<h4>DATETRUNC</h4>
-<pre><code>datetime datetrunc (datetime date, string datepart)
+</code></pre><h4 id="DATETRUNC"><a href="#DATETRUNC" class="headerlink" title="DATETRUNC"></a>DATETRUNC</h4><pre><code>datetime datetrunc (datetime date, string datepart)
 
-</code></pre>
-<p>命令说明如下：</p>
+</code></pre><p>命令说明如下：</p>
 <p>返回日期date被截取指定时间单位datepart后的日期值。</p>
 <p>参数说明：</p>
 <ul>
@@ -420,37 +404,29 @@ datepart('2013-06-08 01:10:00', 'mm')  =  6
 <p>返回值：</p>
 <p>Datetime类型。任意一个参数为NULL时，返回NULL。</p>
 <p>示例如下：</p>
-<pre><code>datetrunc('2011-12-07 16:28:46', 'yyyy') = 2011-01-01 00:00:00
-datetrunc('2011-12-07 16:28:46', 'month') = 2011-12-01 00:00:00
-datetrunc('2011-12-07 16:28:46', 'DD') = 2011-12-07 00:00:00
+<pre><code>datetrunc(&#39;2011-12-07 16:28:46&#39;, &#39;yyyy&#39;) = 2011-01-01 00:00:00
+datetrunc(&#39;2011-12-07 16:28:46&#39;, &#39;month&#39;) = 2011-12-01 00:00:00
+datetrunc(&#39;2011-12-07 16:28:46&#39;, &#39;DD&#39;) = 2011-12-07 00:00:00
 
-</code></pre>
-<h4>GETDATE</h4>
-<pre><code>datetime getdate()
+</code></pre><h4 id="GETDATE"><a href="#GETDATE" class="headerlink" title="GETDATE"></a>GETDATE</h4><pre><code>datetime getdate()
 
-</code></pre>
-<p>命令说明如下：</p>
+</code></pre><p>命令说明如下：</p>
 <p>获取当前系统时间。使用东八区时间作为MaxCompute标准时间。</p>
 <p>返回值：</p>
 <p>返回当前日期和时间，Datetime类型。</p>
-<h4>ISDATE</h4>
-<pre><code>boolean isdate(string date, string format)
+<h4 id="ISDATE"><a href="#ISDATE" class="headerlink" title="ISDATE"></a>ISDATE</h4><pre><code>boolean isdate(string date, string format)
 
-</code></pre>
-<p>命令说明如下：</p>
+</code></pre><p>命令说明如下：</p>
 <p>判断一个日期字符串能否根据对应的格式串转换为一个日期值，如果转换成功，返回TRUE，否则返回FALSE。</p>
 <p>参数说明：</p>
 <ul>
 <li>date：String格式的日期值，若输入为Bigint、Double、Decimal或Datetime类型，会隐式转换为String类型后参与运算，其它类型报异常。</li>
-<li>format：String类型常量，不支持日期扩展格式。其它类型或不支持的格式会抛异常。如果format中出现多余的格式串，则只取第一个格式串对应的日期数值，其余的会被视为分隔符。如isdate(“1234-yyyy”, “yyyy-yyyy”)，会返回TRUE。<br>
-返回值：</li>
+<li>format：String类型常量，不支持日期扩展格式。其它类型或不支持的格式会抛异常。如果format中出现多余的格式串，则只取第一个格式串对应的日期数值，其余的会被视为分隔符。如isdate(“1234-yyyy”, “yyyy-yyyy”)，会返回TRUE。<br>返回值：</li>
 </ul>
 <p>返回Boolean类型，如任意参数为NULL，返回NULL。</p>
-<h5>LASTDAY</h5>
-<pre><code>datetime lastday(datetime date)
+<h5 id="LASTDAY"><a href="#LASTDAY" class="headerlink" title="LASTDAY"></a>LASTDAY</h5><pre><code>datetime lastday(datetime date)
 
-</code></pre>
-<p>命令说明如下：</p>
+</code></pre><p>命令说明如下：</p>
 <p>取date当月的最后一天，截取到天，时分秒部分为00:00:00。</p>
 <p>参数说明：</p>
 <ul>
@@ -458,11 +434,9 @@ datetrunc('2011-12-07 16:28:46', 'DD') = 2011-12-07 00:00:00
 </ul>
 <p>返回值：</p>
 <p>返回Datetime类型，如输入为NULL，返回NULL。</p>
-<h4>TO_DATE</h4>
-<pre><code>datetime to_date(string date, string format)
+<h4 id="TO-DATE"><a href="#TO-DATE" class="headerlink" title="TO_DATE"></a>TO_DATE</h4><pre><code>datetime to_date(string date, string format)
 
-</code></pre>
-<p>命令说明如下：</p>
+</code></pre><p>命令说明如下：</p>
 <p>用途：将一个format格式的字符串date转成日期值。</p>
 <p>参数说明：</p>
 <ul>
@@ -477,23 +451,20 @@ datetrunc('2011-12-07 16:28:46', 'DD') = 2011-12-07 00:00:00
 </blockquote>
 <p>返回值：返回Datetime类型，格式为‘yyyy-mm-dd hh:mi:ss’ 。若任意一个输入的参数为NULL，则返回NULL值。</p>
 <p>示例如下：</p>
-<pre><code>to_date('阿里巴巴2010-12*03', '阿里巴巴yyyy-mm*dd') = 2010-12-03 00:00:00
-to_date('20080718', 'yyyymmdd') = 2008-07-18 00:00:00
-to_date('200807182030','yyyymmddhhmi') = 2008-07-18 20:30:00
-to_date('2008718', 'yyyymmdd') = null
+<pre><code>to_date(&#39;阿里巴巴2010-12*03&#39;, &#39;阿里巴巴yyyy-mm*dd&#39;) = 2010-12-03 00:00:00
+to_date(&#39;20080718&#39;, &#39;yyyymmdd&#39;) = 2008-07-18 00:00:00
+to_date(&#39;200807182030&#39;,&#39;yyyymmddhhmi&#39;) = 2008-07-18 20:30:00
+to_date(&#39;2008718&#39;, &#39;yyyymmdd&#39;) = null
 -- 格式不符合，引发异常
-to_date('阿里巴巴2010-12*3', '阿里巴巴yyyy-mm*dd') = null
+to_date(&#39;阿里巴巴2010-12*3&#39;, &#39;阿里巴巴yyyy-mm*dd&#39;) = null
 -- 格式不符合，引发异常
-to_date('2010-24-01', 'yyyy') = null
+to_date(&#39;2010-24-01&#39;, &#39;yyyy&#39;) = null
 -- 格式不符合，引发异常
-to_date('20181030 15-13-12.345','yyyymmdd hh-mi-ss.ff3')=2018-10-30 15:13:12
+to_date(&#39;20181030 15-13-12.345&#39;,&#39;yyyymmdd hh-mi-ss.ff3&#39;)=2018-10-30 15:13:12
 
-</code></pre>
-<h4>TO_CHAR</h4>
-<pre><code>string to_char(datetime date, string format)
+</code></pre><h4 id="TO-CHAR"><a href="#TO-CHAR" class="headerlink" title="TO_CHAR"></a>TO_CHAR</h4><pre><code>string to_char(datetime date, string format)
 
-</code></pre>
-<p>命令说明如下：</p>
+</code></pre><p>命令说明如下：</p>
 <p>将日期类型date按照format指定的格式转成字符串。</p>
 <p>参数类型：</p>
 <ul>
@@ -503,18 +474,15 @@ to_date('20181030 15-13-12.345','yyyymmdd hh-mi-ss.ff3')=2018-10-30 15:13:12
 <p>返回值：</p>
 <p>返回String类型。若任意一个输入的参数为NULL，则返回NULL值。</p>
 <p>示例如下：</p>
-<pre><code>to_char('2010-12-03 00:00:00', '阿里金融yyyy-mm*dd') = '阿里金融2010-12*03'
-to_char('2008-07-18 00:00:00', 'yyyymmdd') = '20080718' 
-to_char('阿里巴巴2010-12*3', '阿里巴巴yyyy-mm*dd') -- 引发异常
-to_char('2010-24-01', 'yyyy') -- 会引发异常
-to_char('2008718', 'yyyymmdd') -- 会引发异常
+<pre><code>to_char(&#39;2010-12-03 00:00:00&#39;, &#39;阿里金融yyyy-mm*dd&#39;) = &#39;阿里金融2010-12*03&#39;
+to_char(&#39;2008-07-18 00:00:00&#39;, &#39;yyyymmdd&#39;) = &#39;20080718&#39; 
+to_char(&#39;阿里巴巴2010-12*3&#39;, &#39;阿里巴巴yyyy-mm*dd&#39;) -- 引发异常
+to_char(&#39;2010-24-01&#39;, &#39;yyyy&#39;) -- 会引发异常
+to_char(&#39;2008718&#39;, &#39;yyyymmdd&#39;) -- 会引发异常
 
-</code></pre>
-<h4>UNIX_TIMESTAMP</h4>
-<pre><code>bigint unix_timestamp(datetime date)
+</code></pre><h4 id="UNIX-TIMESTAMP"><a href="#UNIX-TIMESTAMP" class="headerlink" title="UNIX_TIMESTAMP"></a>UNIX_TIMESTAMP</h4><pre><code>bigint unix_timestamp(datetime date)
 
-</code></pre>
-<p>命令说明如下：</p>
+</code></pre><p>命令说明如下：</p>
 <p>将日期date转化为整型的unix格式的日期时间值。</p>
 <p>参数说明：</p>
 <ul>
@@ -522,11 +490,9 @@ to_char('2008718', 'yyyymmdd') -- 会引发异常
 </ul>
 <p>返回值：</p>
 <p>返回Bigint类型，表示unix格式日期值，date为NULL时，返回NULL值。</p>
-<h4>FROM_UNIXTIME</h4>
-<pre><code>datetime from_unixtime(bigint unixtime)
+<h4 id="FROM-UNIXTIME"><a href="#FROM-UNIXTIME" class="headerlink" title="FROM_UNIXTIME"></a>FROM_UNIXTIME</h4><pre><code>datetime from_unixtime(bigint unixtime)
 
-</code></pre>
-<p>命令说明如下：</p>
+</code></pre><p>命令说明如下：</p>
 <p>将数字型的unix时间日期值unixtime转为日期值。</p>
 <p>参数说明：</p>
 <ul>
@@ -537,12 +503,9 @@ to_char('2008718', 'yyyymmdd') -- 会引发异常
 <p>示例如下：</p>
 <pre><code>from_unixtime(123456789) = 1973-11-30 05:33:09
 
-</code></pre>
-<h4>WEEKDAY</h4>
-<pre><code>bigint weekday (datetime date)
+</code></pre><h4 id="WEEKDAY"><a href="#WEEKDAY" class="headerlink" title="WEEKDAY"></a>WEEKDAY</h4><pre><code>bigint weekday (datetime date)
 
-</code></pre>
-<p>命令说明如下：</p>
+</code></pre><p>命令说明如下：</p>
 <p>返回date日期当前周的第几天。</p>
 <p>参数说明：</p>
 <ul>
@@ -550,11 +513,9 @@ to_char('2008718', 'yyyymmdd') -- 会引发异常
 </ul>
 <p>返回值：</p>
 <p>返回Bigint类型，若输入参数为NULL，返回NULL值。周一作为一周的第一天，返回值为0。其他日期依次递增，周日返回6。</p>
-<h4>WEEKOFYEAR</h4>
-<pre><code>bigint weekofyear(datetime date)
+<h4 id="WEEKOFYEAR"><a href="#WEEKOFYEAR" class="headerlink" title="WEEKOFYEAR"></a>WEEKOFYEAR</h4><pre><code>bigint weekofyear(datetime date)
 
-</code></pre>
-<p>命令说明如下：</p>
+</code></pre><p>命令说明如下：</p>
 <p>返回日期date位于那一年的第几周。周一作为一周的第一天。</p>
 <p>参数说明:</p>
 <ul>
@@ -573,10 +534,8 @@ to_char('2008718', 'yyyymmdd') -- 会引发异常
  -虽然20141229属于2014年，但是这一周的大多数日期是在2015年，因此返回结果为1，表示是2015年的第一周。    
  select weekofyear(to_date(&quot;20141231&quot;, &quot;yyyymmdd&quot;)) from dual；--返回结果为1。  
  select weekofyear(to_date(&quot;20151229&quot;, &quot;yyyymmdd&quot;)) from dual；--返回结果为53。
- 
-</code></pre>
-<h3>日期函数扩展函数（支持MaxCompute2.0）</h3>
 
+</code></pre><h3 id="日期函数扩展函数（支持MaxCompute2-0）"><a href="#日期函数扩展函数（支持MaxCompute2-0）" class="headerlink" title="日期函数扩展函数（支持MaxCompute2.0）"></a>日期函数扩展函数（支持MaxCompute2.0）</h3>
             </div>
             <hr>
 
@@ -742,18 +701,17 @@ to_char('2008718', 'yyyymmdd') -- 会引发异常
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="33301-MaxCompute技术沙龙总结（MaxCompute，基于Serverless的高可靠大数据服务）">
+                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="301-MaxCompute技术沙龙总结（MaxCompute，基于Serverless的高可靠大数据服务）">
                         
-                        <span class="card-title">33301-MaxCompute技术沙龙总结（MaxCompute，基于Serverless的高可靠大数据服务）</span>
+                        <span class="card-title">301-MaxCompute技术沙龙总结（MaxCompute，基于Serverless的高可靠大数据服务）</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary">沙龙主题：
-
 13:00-13:30 主题签到
 13:30-14:10 MaxCompute，基于Serverless的高可靠大数据服务 讲师：吴永明
 14:10-14:50 基于MaxCompute的媒体大数据开放平台建设 讲师：李金波
-</div>
+1</div>
                     <div class="publish-info">
                         <span class="publish-date">
                             <i class="fa fa-clock-o fa-fw icon-date"></i>2018-12-07
@@ -797,13 +755,10 @@ to_char('2008718', 'yyyymmdd') -- 会引发异常
                 </a>
                 <div class="card-content article-content">
                     <div class="summary">内建函数对照-与mysql 以及oracle
-日期函数
-DATEADD
-datetime dateadd(datetime date, bigint delta, string datepart)
+日期函数DATEADDdatetime dateadd(datetime date, bigint delta, string datepart)
 
 
-
-date：Datetime类型，日期</div>
+date：Datetime类型，日期值。若</div>
                     <div class="publish-info">
                             <span class="publish-date">
                                 <i class="fa fa-clock-o fa-fw icon-date"></i>2018-09-07
