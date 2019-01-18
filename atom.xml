@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://xuesongyin.github.io/"/>
-  <updated>2019-01-03T04:47:15.965Z</updated>
+  <updated>2019-01-18T16:04:27.922Z</updated>
   <id>https://xuesongyin.github.io/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>301-MaxCompute技术沙龙总结（MaxCompute，基于Serverless的高可靠大数据服务）</title>
+    <link href="https://xuesongyin.github.io/2019/01/19/MaxCompute%E6%8A%80%E6%9C%AF%E6%B2%99%E9%BE%99%E6%80%BB%E7%BB%9301%EF%BC%88MaxCompute%EF%BC%8C%E5%9F%BA%E4%BA%8EServerless%E7%9A%84%E9%AB%98%E5%8F%AF%E9%9D%A0%E5%A4%A7%E6%95%B0%E6%8D%AE%E6%9C%8D%E5%8A%A1%EF%BC%89/"/>
+    <id>https://xuesongyin.github.io/2019/01/19/MaxCompute技术沙龙总结01（MaxCompute，基于Serverless的高可靠大数据服务）/</id>
+    <published>2019-01-18T16:05:00.000Z</published>
+    <updated>2019-01-18T16:04:27.922Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;沙龙主题：&quot;&gt;&lt;a href=&quot;#沙龙主题：&quot; class=&quot;headerlink&quot; title=&quot;沙龙主题：&quot;&gt;&lt;/a&gt;沙龙主题：&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;13:00-13:30 主题签到&lt;/li&gt;
+&lt;li&gt;13:30-14:10 MaxCompute，基于S
+      
+    
+    </summary>
+    
+      <category term="Maxcompute" scheme="https://xuesongyin.github.io/categories/Maxcompute/"/>
+    
+    
+      <category term="Maxcompute-技术沙龙" scheme="https://xuesongyin.github.io/tags/Maxcompute-%E6%8A%80%E6%9C%AF%E6%B2%99%E9%BE%99/"/>
+    
+  </entry>
   
   <entry>
     <title>203-MAPJOIN HINT数</title>
@@ -177,31 +202,6 @@
     
     
       <category term="Maxcompute-内建函数" scheme="https://xuesongyin.github.io/tags/Maxcompute-%E5%86%85%E5%BB%BA%E5%87%BD%E6%95%B0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>301-MaxCompute技术沙龙总结（MaxCompute，基于Serverless的高可靠大数据服务）</title>
-    <link href="https://xuesongyin.github.io/2018/12/07/MaxCompute%E6%8A%80%E6%9C%AF%E6%B2%99%E9%BE%99%E6%80%BB%E7%BB%9301%EF%BC%88MaxCompute%EF%BC%8C%E5%9F%BA%E4%BA%8EServerless%E7%9A%84%E9%AB%98%E5%8F%AF%E9%9D%A0%E5%A4%A7%E6%95%B0%E6%8D%AE%E6%9C%8D%E5%8A%A1%EF%BC%89/"/>
-    <id>https://xuesongyin.github.io/2018/12/07/MaxCompute技术沙龙总结01（MaxCompute，基于Serverless的高可靠大数据服务）/</id>
-    <published>2018-12-07T01:25:00.000Z</published>
-    <updated>2019-01-18T16:02:02.716Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h3 id=&quot;沙龙主题：&quot;&gt;&lt;a href=&quot;#沙龙主题：&quot; class=&quot;headerlink&quot; title=&quot;沙龙主题：&quot;&gt;&lt;/a&gt;沙龙主题：&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;13:00-13:30 主题签到&lt;/li&gt;
-&lt;li&gt;13:30-14:10 MaxCompute，基于S
-      
-    
-    </summary>
-    
-      <category term="Maxcompute" scheme="https://xuesongyin.github.io/categories/Maxcompute/"/>
-    
-    
-      <category term="Maxcompute-技术沙龙" scheme="https://xuesongyin.github.io/tags/Maxcompute-%E6%8A%80%E6%9C%AF%E6%B2%99%E9%BE%99/"/>
     
   </entry>
   
